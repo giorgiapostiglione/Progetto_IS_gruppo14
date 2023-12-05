@@ -326,6 +326,7 @@ public class ComplexTest {
     /**
      * Fine Test of toString methods, of class Complex.
      */
+    
     /**
      * Test of add method, of class Complex.
      */
