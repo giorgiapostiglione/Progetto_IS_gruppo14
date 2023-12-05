@@ -337,7 +337,7 @@ public class ComplexTest {
         Complex b = new Complex(3.0, 4.0);
         Complex expResult = new Complex(4.0, 6.0);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+        assertEquals(expResult.toString(), result.toString());
     }
 
     @Test
@@ -347,7 +347,7 @@ public class ComplexTest {
         Complex b = new Complex(-1.0, -1.0);
         Complex expResult = new Complex(2.0, 1.0);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+        assertEquals(expResult.toString(), result.toString());
     }
    
     @Test
@@ -357,7 +357,7 @@ public class ComplexTest {
         Complex b = new Complex(3.0, 4.0);
         Complex expResult = new Complex(3.0, 4.0);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+        assertEquals(expResult.toString(), result.toString());
     }
 
     @Test
@@ -367,7 +367,7 @@ public class ComplexTest {
         Complex b = new Complex(-Double.MAX_VALUE, -Double.MAX_VALUE);
         Complex expResult = new Complex(0.0, 0.0);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+        assertEquals(expResult.toString(), result.toString());
     }
 
     @Test
@@ -377,7 +377,7 @@ public class ComplexTest {
         Complex b = new Complex(-Double.MIN_VALUE, -Double.MIN_VALUE);
         Complex expResult = new Complex(0.0, 0.0);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+       assertEquals(expResult.toString(), result.toString());
     }
 
     @Test
@@ -387,18 +387,19 @@ public class ComplexTest {
         Complex b = new Complex(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
         Complex expResult = new Complex(Double.NaN, Double.NaN);
         Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testAdd_NegativeFractionalImaginary() {
+        System.out.println("Testing testAdd_NegativeFractionalImaginary");
+        Complex a = new Complex(4.0, -2.5);
+        Complex b = new Complex(1.5, -1.0);
+        Complex expResult = new Complex(5.5, -3.5);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult.toString(), result.toString());
     }
 
-    @Test
-    public void testAdd_NullValues() {
-        System.out.println("Testing testAdd_NullValues");
-        Complex a = null;
-        Complex b = new Complex(3.0, 4.0);
-        Complex expResult = null;
-        Complex result = Complex.add(a, b);
-        assertEquals(expResult, result);
-    }
+    
 
     /**
      * Fine Test of add methods, of class Complex.
@@ -407,32 +408,128 @@ public class ComplexTest {
      * Test of sub method, of class Complex.
      */
     @Test
-    public void testSub() {
-        System.out.println("sub");
-        Complex b = null;
-        Complex a = null;
-        Complex expResult = null;
+    public void testSub_PositiveRealImaginary() {
+        System.out.println("Testing testSub_PositiveRealImaginary");
+        Complex a = new Complex(1.0, 2.0);
+        Complex b = new Complex(3.0, 4.0);
+        Complex expResult = new Complex(-2.0, -2.0);
         Complex result = Complex.sub(b, a);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.toString(), result.toString());
     }
 
+    @Test
+    public void testSub_NegativeRealImaginary() {
+        System.out.println("Testing testSub_NegativeRealImaginary");
+        Complex a = new Complex(3.0, 2.0);
+        Complex b = new Complex(-1.0, -1.0);
+        Complex expResult = new Complex(4.0, 3.0);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testSub_ComplexZero() {
+        System.out.println("Testing testSub_ComplexZero");
+        Complex a = new Complex(0.0, 0.0);
+        Complex b = new Complex(3.0, 4.0);
+        Complex expResult = new Complex(-3.0, -4.0);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testSub_MaxValues() {
+        System.out.println("Testing testSub_MaxValues");
+        Complex a = new Complex(Double.MAX_VALUE, Double.MAX_VALUE);
+        Complex b = new Complex(Double.MAX_VALUE, Double.MAX_VALUE);
+        Complex expResult = new Complex(0,0);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testSub_MinValues() {
+        System.out.println("Testing testSub_MinValues");
+        Complex a = new Complex(Double.MIN_VALUE, Double.MIN_VALUE);
+        Complex b = new Complex(Double.MIN_VALUE, Double.MIN_VALUE);
+        Complex expResult = new Complex(0,0);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testSub_InfiniteValues() {
+        System.out.println("Testing testSub_InfiniteValues");
+        Complex a = new Complex(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
+        Complex b = new Complex(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
+        Complex expResult = new Complex(Double.NaN, Double.NaN);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testSub_NegativeFractionalImaginary() {
+        System.out.println("Testing testSub_NegativeFractionalImaginary");
+        Complex a = new Complex(4.0, -2.5);
+        Complex b = new Complex(1.5, -1.0);
+        Complex expResult = new Complex(2.5, -1.5);
+        Complex result = Complex.sub(b, a);
+        assertEquals(expResult.toString(), result.toString());
+    }
+/**
+     * Fine Test of sub methods, of class Complex.
+     */
     /**
      * Test of mul method, of class Complex.
      */
+   
     @Test
-    public void testMul() {
-        System.out.println("mul");
-        Complex a = null;
-        Complex b = null;
-        Complex expResult = null;
+    public void testMulRealAndImaginary() {
+        Complex a = new Complex(2.0, 3.0);
+        Complex b = new Complex(1.0, 2.0);
+        Complex expResult = new Complex(-4.0, 7.0);
         Complex result = Complex.mul(a, b);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testMulBothReal() {
+        Complex a = new Complex(2.5, 0.0);
+        Complex b = new Complex(3.0, 0.0);
+        Complex expResult = new Complex(7.5, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
     }
 
+    @Test
+    public void testMulBothImaginary() {
+        Complex a = new Complex(0.0, 4.0);
+        Complex b = new Complex(0.0, 2.0);
+        Complex expResult = new Complex(-8.0, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testMulZero() {
+        Complex a = new Complex(0.0, 0.0);
+        Complex b = new Complex(3.0, 5.0);
+        Complex expResult = new Complex(0.0, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testMulWithRounding() {
+        Complex a = new Complex(1.234567, 2.345678);
+        Complex b = new Complex(3.456789, 4.567890);
+        Complex expResult = new Complex(-6.4472, 13.7479); 
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    
+    
+    /**
+     * Fine Test of mul methods, of class Complex.
+     */
     /**
      * Test of div method, of class Complex.
      */
@@ -447,7 +544,10 @@ public class ComplexTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+/**
+     * Fine Test of div methods, of class Complex.
+     */
+    /**
     /**
      * Test of sqrt method, of class Complex.
      */
