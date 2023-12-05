@@ -282,9 +282,10 @@ public class ComplexTest {
         assertEquals(expResult, result, 0.0);
     }
 
-     /**
-     * Fine Test getIm method
-     */
+    /**
+    * Fine Test getIm method
+    */
+    
     /**
      * Test of toString methods, of class Complex.
      */
