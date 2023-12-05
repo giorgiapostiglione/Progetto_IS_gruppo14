@@ -329,17 +329,78 @@ public class ComplexTest {
      * Test of add method, of class Complex.
      */
     @Test
-    public void testAdd() {
-        System.out.println("add");
+    public void testAdd_PositiveRealImaginary() {
+        System.out.println("Testing testAdd_PositiveReal");
+        Complex a = new Complex(1.0, 2.0);
+        Complex b = new Complex(3.0, 4.0);
+        Complex expResult = new Complex(4.0, 6.0);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAdd_NegativeRealImaginary() {
+        System.out.println("Testing testAdd_NegativeReal");
+        Complex a = new Complex(3.0, 2.0);
+        Complex b = new Complex(-1.0, -1.0);
+        Complex expResult = new Complex(2.0, 1.0);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+   
+    @Test
+    public void testAdd_ComplexZero() {
+        System.out.println("Testing testAdd_ComplexZero");
+        Complex a = new Complex(0.0, 0.0);
+        Complex b = new Complex(3.0, 4.0);
+        Complex expResult = new Complex(3.0, 4.0);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAdd_MaxValues() {
+        System.out.println("Testing testAdd_MaxValues");
+        Complex a = new Complex(Double.MAX_VALUE, Double.MAX_VALUE);
+        Complex b = new Complex(-Double.MAX_VALUE, -Double.MAX_VALUE);
+        Complex expResult = new Complex(0.0, 0.0);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAdd_MinValues() {
+        System.out.println("Testing testAdd_MinValues");
+        Complex a = new Complex(Double.MIN_VALUE, Double.MIN_VALUE);
+        Complex b = new Complex(-Double.MIN_VALUE, -Double.MIN_VALUE);
+        Complex expResult = new Complex(0.0, 0.0);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAdd_InfiniteValues() {
+        System.out.println("Testing testAdd_InfiniteValues");
+        Complex a = new Complex(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY);
+        Complex b = new Complex(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+        Complex expResult = new Complex(Double.NaN, Double.NaN);
+        Complex result = Complex.add(a, b);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAdd_NullValues() {
+        System.out.println("Testing testAdd_NullValues");
         Complex a = null;
-        Complex b = null;
+        Complex b = new Complex(3.0, 4.0);
         Complex expResult = null;
         Complex result = Complex.add(a, b);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
+    /**
+     * Fine Test of add methods, of class Complex.
+     */
     /**
      * Test of sub method, of class Complex.
      */
