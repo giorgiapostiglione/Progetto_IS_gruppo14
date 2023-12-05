@@ -41,13 +41,13 @@ public class ComplexTest {
      */
     @Test
     public void testGetRe() {
-        System.out.println("getRe");
-        Complex instance = null;
-        double expResult = 0.0;
+        System.out.println("Testing getRe");
+        Complex instance = new Complex(1.0,2.0);
+        double expResult = 1.0;
         double result = instance.getRe();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
