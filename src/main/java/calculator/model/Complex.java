@@ -4,6 +4,7 @@
  */
 package calculator.model;
 
+import calculator.exception.DivisionByZeroException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -104,7 +105,10 @@ public class Complex {
      * @param b Denominatore.
      * @return Nuovo numero complesso risultante dalla divisione di a per b.
      */
-   public static Complex div(Complex b, Complex a){
+   public static Complex div(Complex b, Complex a) throws DivisionByZeroException{
+       if((b.getRe()==0) && (b.getIm()==0)){
+           throw new DivisionByZeroException();
+       }
        return mul(a, reciproco(b));
    }
    
