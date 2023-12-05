@@ -482,18 +482,54 @@ public class ComplexTest {
     /**
      * Test of mul method, of class Complex.
      */
+   
     @Test
-    public void testMul() {
-        System.out.println("mul");
-        Complex a = null;
-        Complex b = null;
-        Complex expResult = null;
+    public void testMulRealAndImaginary() {
+        Complex a = new Complex(2.0, 3.0);
+        Complex b = new Complex(1.0, 2.0);
+        Complex expResult = new Complex(-4.0, 7.0);
         Complex result = Complex.mul(a, b);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testMulBothReal() {
+        Complex a = new Complex(2.5, 0.0);
+        Complex b = new Complex(3.0, 0.0);
+        Complex expResult = new Complex(7.5, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
     }
 
+    @Test
+    public void testMulBothImaginary() {
+        Complex a = new Complex(0.0, 4.0);
+        Complex b = new Complex(0.0, 2.0);
+        Complex expResult = new Complex(-8.0, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testMulZero() {
+        Complex a = new Complex(0.0, 0.0);
+        Complex b = new Complex(3.0, 5.0);
+        Complex expResult = new Complex(0.0, 0.0);
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testMulWithRounding() {
+        Complex a = new Complex(1.234567, 2.345678);
+        Complex b = new Complex(3.456789, 4.567890);
+        Complex expResult = new Complex(-6.4472, 13.7479); 
+        Complex result = Complex.mul(a, b);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    
+    
+    /**
+     * Fine Test of mul methods, of class Complex.
+     */
     /**
      * Test of div method, of class Complex.
      */
