@@ -73,10 +73,15 @@ public class Complex {
     public static Complex mul(Complex a, Complex b){
         double real = a.getRe() * b.getRe() - a.getIm() * b.getIm();
         double imag = a.getRe()* b.getIm() + a.getIm() * b.getRe();
+        
+        //Approssimo 4 cifre decimali dopo la virgola
         BigDecimal bdReal = new BigDecimal(real);
         bdReal = bdReal.setScale(4, RoundingMode.HALF_UP);
+        
+         //Approssimo 4 cifre decimali dopo la virgola
         BigDecimal bdImag = new BigDecimal(imag);
         bdImag = bdImag.setScale(4, RoundingMode.HALF_UP);
+        
         real=bdReal.doubleValue();
         imag=bdImag.doubleValue();
         return new Complex(real, imag);    
