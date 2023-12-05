@@ -47,7 +47,6 @@ public class Complex {
      * @return Nuovo numero complesso risultante dall'addizione di a e b.
      */
     public static Complex add(Complex a, Complex b){
-
         double real = a.getRe() + b.getRe();
         double imag = a.getIm()+ b.getIm();
         return new Complex(real, imag);    
@@ -101,9 +100,9 @@ public class Complex {
    
     /**
      * Esegue l'operazione di divisione tra due numeri complessi.
-     * @param b Numeratore.
-     * @param a Denominatore.
-     * @return Nuovo numero complesso risultante dalla divisione di b per a.
+     * @param a Numeratore.
+     * @param b Denominatore.
+     * @return Nuovo numero complesso risultante dalla divisione di a per b.
      */
    public static Complex div(Complex b, Complex a){
        return mul(a, reciproco(b));
