@@ -41,6 +41,7 @@ public class ComplexTest {
      */
     @Test
     public void testGetRe_PositiveReal() {
+        System.out.println("Testing testGetRe_PositiveReal");
         Complex instance = new Complex(1.0, 2.0);
         double expResult = 1.0;
         double result = instance.getRe();
@@ -49,6 +50,7 @@ public class ComplexTest {
 
     @Test
     public void testGetRe_NegativeReal() {
+        System.out.println("Testing testGetRe_NegativeReal");
         Complex instance = new Complex(-3.0, 2.0);
         double expResult = -3.0;
         double result = instance.getRe();
@@ -57,6 +59,7 @@ public class ComplexTest {
 
     @Test
     public void testGetRe_ImaginaryZero() {
+        System.out.println("Testing testGetRe_ImaginaryZero");
         Complex instance = new Complex(5.0, 0.0);
         double expResult = 5.0;
         double result = instance.getRe();
@@ -64,11 +67,53 @@ public class ComplexTest {
     }
     @Test
     public void testGetRe_RealZero() {
+        System.out.println("Testing testGetRe_RealZero");
         Complex instance = new Complex(0.0, 7.0);
         double expResult = 0.0;
         double result = instance.getRe();
         assertEquals(expResult, result, 0.0);
-}
+    }
+    @Test
+    public void testGetRe_ComplexZero() {
+        System.out.println("Testing testGetRe_ComplexZero");
+        Complex instance = new Complex(0.0, 0.0);
+        double expResult = 0.0;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetRe_MaxReal() {
+        System.out.println("Testing testGetRe_MaxReal");
+        Complex instance = new Complex(Double.MAX_VALUE, 3.0);
+        double expResult = Double.MAX_VALUE;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetRe_MinReal() {
+        System.out.println("Testing testGetRe_MinReal");
+        Complex instance = new Complex(Double.MIN_VALUE, 4.0);
+        double expResult = Double.MIN_VALUE;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetRe_InfiniteReal() {
+        System.out.println("Testing testGetRe_InfiniteReal");
+        Complex instance = new Complex(Double.POSITIVE_INFINITY, 2.0);
+        double expResult = Double.POSITIVE_INFINITY;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetRe_MaxImaginary() {
+        System.out.println("Testing testGetRe_MaxImaginary");
+        Complex instance = new Complex(5.0, Double.MAX_VALUE);
+        double expResult = 5.0;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+
     /**
      * Fine Test getRe method
      */
