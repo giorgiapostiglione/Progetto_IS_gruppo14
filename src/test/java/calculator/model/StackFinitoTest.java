@@ -43,7 +43,7 @@ public class StackFinitoTest {
     //verifico che  l'elemento presente in cima allo stack è uguale a quello inserito
     public void testPush_elem() {
         System.out.println("push");
-        Complex element = new Complex(-55, 81);
+        Complex element = new Complex(-55.603, 81);
         StackFinito instance = new StackFinito();
         instance.push(element);
         assertEquals(instance.viewElement(instance.getSize()-1), element);
@@ -52,10 +52,10 @@ public class StackFinitoTest {
     //verifico che  gli ultimi elementi presenti in cima allo stack sono uguali a quelli inseriti
     public void testPush_elems() {
         System.out.println("push");
-        Complex element1 = new Complex(-73, 94);
-        Complex element2 = new Complex(36, 1201);
-        Complex element3 = new Complex(-908, 3489);
-        Complex element4 = new Complex(-5025, -3098);
+        Complex element1 = new Complex(-73.65, 94.26);
+        Complex element2 = new Complex(36.881, 1201.39);
+        Complex element3 = new Complex(-908.1379, 3489);
+        Complex element4 = new Complex(-5025, -3098.22);
         StackFinito instance = new StackFinito();
         instance.push(element1);
         instance.push(element2);
@@ -67,12 +67,23 @@ public class StackFinitoTest {
         assertEquals(instance.viewElement(instance.getSize()-1), element4);
     }
     @Test
+    //verifico che la condizione di stack pieno venga riconosciuta
+    public void testPush_full() {
+        System.out.println("push");
+        StackFinito instance = new StackFinito();
+        for(int i=0; i<50; i++){
+            instance.push(new Complex(Math.random()*i, Math.random()*i));
+        }
+        instance.push(new Complex(-478.884, 891.65));
+        
+    }
+    @Test
     //verifico che la dimensione dello stack aumenti dopo la push
     public void testPush_size() {
         System.out.println("push");
         StackFinito instance = new StackFinito();
         int expResult=instance.getSize()+1;
-        Complex number = new Complex(63,-76);
+        Complex number = new Complex(63.09,-76.17);
         int result=instance.getSize();
         assertEquals(expResult, result);
     }
@@ -93,7 +104,7 @@ public class StackFinitoTest {
     public void testPop_elem() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
-        instance.push(new Complex(254, -188));
+        instance.push(new Complex(254.034, -188.2095));
         Complex expResult = instance.viewElement(instance.getSize()-1);
         Complex result = instance.pop();
         assertEquals(expResult, result);
@@ -103,8 +114,8 @@ public class StackFinitoTest {
     public void testPop_elems() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
-        instance.push(new Complex(-738, -233));
-        instance.push(new Complex(524, 1002));
+        instance.push(new Complex(-738, -233.6983));
+        instance.push(new Complex(524.3692, 1002.24));
         instance.push(new Complex(935, -347));
         Complex expResult1 = instance.viewElement(instance.getSize()-1);
         Complex expResult2 = instance.viewElement(instance.getSize()-2);
@@ -135,9 +146,9 @@ public class StackFinitoTest {
     public void testGetSize_push() {
         System.out.println("getSize");
         StackFinito instance = new StackFinito();
-        instance.push(new Complex(-22, -34));
+        instance.push(new Complex(-22.1056, -34.2));
         instance.push(new Complex(-57, 24));
-        instance.push(new Complex(89, 93));
+        instance.push(new Complex(89, 93.480));
         int expResult = 3;
         int result = instance.getSize();
         assertEquals(expResult, result);
@@ -147,9 +158,9 @@ public class StackFinitoTest {
     public void testGetSize_pushAndPop() {
         System.out.println("getSize");
         StackFinito instance = new StackFinito();
-        instance.push(new Complex(-33, -64));
-        instance.push(new Complex(-85, 26));
-        instance.push(new Complex(77, 32));
+        instance.push(new Complex(-33.467, -64.23));
+        instance.push(new Complex(-85.33, 26));
+        instance.push(new Complex(77, 32.47));
         Complex number=instance.pop();
         int expResult = 2;
         int result = instance.getSize();
