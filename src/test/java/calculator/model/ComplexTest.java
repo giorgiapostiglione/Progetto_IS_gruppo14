@@ -113,6 +113,50 @@ public class ComplexTest {
         double result = instance.getRe();
         assertEquals(expResult, result, 0.0);
     }
+    @Test
+    public void testGetRe_FractionalReal() {
+        System.out.println("Testing testGetRe_FractionalReal");
+        Complex instance = new Complex(1.5, 2.0);
+        double expResult = 1.5;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetRe_NegativeFractionalReal() {
+        System.out.println("Testing testGetRe_NegativeFractionalReal");
+        Complex instance = new Complex(-2.25, 3.0);
+        double expResult = -2.25;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetRe_RoundingError() {
+        System.out.println("Testing testGetRe_RoundingError");
+        Complex instance = new Complex(0.2, 0.1);
+        double expResult = 0.2; // Potrebbe essere soggetto a errori di arrotondamento
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0001); // Definisci una tolleranza per gli errori di arrotondamento
+    }
+
+    @Test
+    public void testGetRe_MaxRealAndImaginary() {
+        System.out.println("Testing testGetRe_MaxRealAndImaginary");
+        Complex instance = new Complex(Double.MAX_VALUE, Double.MAX_VALUE);
+        double expResult = Double.MAX_VALUE;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetRe_MinRealAndImaginary() {
+        System.out.println("Testing testGetRe_MinRealAndImaginary");
+        Complex instance = new Complex(Double.MIN_VALUE, Double.MIN_VALUE);
+        double expResult = Double.MIN_VALUE;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
 
     /**
      * Fine Test getRe method
@@ -123,16 +167,124 @@ public class ComplexTest {
      * Test of getIm method, of class Complex.
      */
     @Test
-    public void testGetIm() {
-        System.out.println("getIm");
-        Complex instance = null;
+    public void testGetIm_PositiveImaginary() {
+        System.out.println("Testing testGetIm_PositiveImaginary");
+        Complex instance = new Complex(1.0, 2.0);
+        double expResult = 2.0;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_NegativeImaginary() {
+        System.out.println("Testing testGetIm_NegativeImaginary");
+        Complex instance = new Complex(-3.0, -2.0);
+        double expResult = -2.0;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_RealZero() {
+        System.out.println("Testing testGetIm_RealZero");
+        Complex instance = new Complex(5.0, 0.0);
         double expResult = 0.0;
         double result = instance.getIm();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testGetIm_ImaginaryZero() {
+        System.out.println("Testing testGetIm_ImaginaryZero");
+        Complex instance = new Complex(0.0, 7.0);
+        double expResult = 7.0;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_ComplexZero() {
+        System.out.println("Testing testGetIm_ComplexZero");
+        Complex instance = new Complex(0.0, 0.0);
+        double expResult = 0.0;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_MaxImaginary() {
+        System.out.println("Testing testGetIm_MaxImaginary");
+        Complex instance = new Complex(5.0, Double.MAX_VALUE);
+        double expResult = Double.MAX_VALUE;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_MinImaginary() {
+        System.out.println("Testing testGetIm_MinImaginary");
+        Complex instance = new Complex(4.0, Double.MIN_VALUE);
+        double expResult = Double.MIN_VALUE;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_InfiniteImaginary() {
+        System.out.println("Testing testGetIm_InfiniteImaginary");
+        Complex instance = new Complex(2.0, Double.NEGATIVE_INFINITY);
+        double expResult = Double.NEGATIVE_INFINITY;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetIm_FractionalImaginary() {
+        System.out.println("Testing testGetIm_FractionalImaginary");
+        Complex instance = new Complex(3.0, 0.5);
+        double expResult = 0.5;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_NegativeFractionalImaginary() {
+        System.out.println("Testing testGetIm_NegativeFractionalImaginary");
+        Complex instance = new Complex(4.0, -0.75);
+        double expResult = -0.75;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_RoundingError() {
+        System.out.println("Testing testGetIm_RoundingError");
+        Complex instance = new Complex(0.1, 0.2);
+        double expResult = 0.2; // Potrebbe essere soggetto a errori di arrotondamento
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0001); // Definisci una tolleranza per gli errori di arrotondamento
+    }
+
+    @Test
+    public void testGetIm_MaxRealAndImaginary() {
+        System.out.println("Testing testGetIm_MaxRealAndImaginary");
+        Complex instance = new Complex(Double.MAX_VALUE, Double.MAX_VALUE);
+        double expResult = Double.MAX_VALUE;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetIm_MinRealAndImaginary() {
+        System.out.println("Testing testGetIm_MinRealAndImaginary");
+        Complex instance = new Complex(Double.MIN_VALUE, Double.MIN_VALUE);
+        double expResult = Double.MIN_VALUE;
+        double result = instance.getIm();
+        assertEquals(expResult, result, 0.0);
+    }
+
+     /**
+     * Fine Test getIm method
+     */
     /**
      * Test of toString method, of class Complex.
      */
