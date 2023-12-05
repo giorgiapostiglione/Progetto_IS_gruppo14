@@ -42,17 +42,16 @@ public class ComplexTest {
     @Test
     public void testGetRe() {
         System.out.println("getRe");
-        Complex instance = null;
-        double expResult = 0.0;
-        double result = instance.getRe();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Complex myClassInstance = new Complex(2,42.0);
+        double expectedRe = 42.0;
+        double actualRe = myClassInstance.getRe();
+        assertEquals(expectedRe, actualRe, 0.001);
     }
-
+ 
     /**
      * Test of getIm method, of class Complex.
      */
+    
     @Test
     public void testGetIm() {
         System.out.println("getIm");
