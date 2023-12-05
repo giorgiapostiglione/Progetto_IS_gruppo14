@@ -135,7 +135,7 @@ public class ComplexTest {
     public void testGetRe_RoundingError() {
         System.out.println("Testing testGetRe_RoundingError");
         Complex instance = new Complex(0.2, 0.1);
-        double expResult = 0.2; // Potrebbe essere soggetto a errori di arrotondamento
+        double expResult = 0.200001; //valore diverso
         double result = instance.getRe();
         assertEquals(expResult, result, 0.0001); // Definisci una tolleranza per gli errori di arrotondamento
     }
@@ -259,7 +259,7 @@ public class ComplexTest {
     public void testGetIm_RoundingError() {
         System.out.println("Testing testGetIm_RoundingError");
         Complex instance = new Complex(0.1, 0.2);
-        double expResult = 0.2; // Potrebbe essere soggetto a errori di arrotondamento
+        double expResult = 0.20001; //valore diverso
         double result = instance.getIm();
         assertEquals(expResult, result, 0.0001); // Definisci una tolleranza per gli errori di arrotondamento
     }
