@@ -108,8 +108,8 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
          if(sf.getSize()<2)
             throw new NotEnoughElementException();
          // Verifica se il denominatore è zero
-         /*if (sf.viewElement(sf.getSize()-1).getIm()==0 && sf.viewElement(sf.getSize()-1).getRe()==0)   
-            throw new DivisionByZeroException();*/
+         if (sf.viewElement(sf.getSize()-1).getIm()==0 && sf.viewElement(sf.getSize()-1).getRe()==0)   
+            throw new DivisionByZeroException();
          
         sf.push(Complex.div(sf.pop(),sf.pop()));    
     }
