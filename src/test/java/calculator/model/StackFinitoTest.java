@@ -168,7 +168,15 @@ public class StackFinitoTest {
         int result = instance.getSize();
         assertEquals(expResult, result);
     }
-
+    @Test
+    //verfico che la getSize 0 essendo lo stack vuoto
+    public void testGetSize_emptyStack() {
+        System.out.println("getSize");
+        StackFinito instance = new StackFinito();
+        int expResult = 0;
+        int result = instance.getSize();
+        assertEquals(expResult, result);
+    }
     /**
      * Test of getMaxSize method, of class StackFinito.
      */
@@ -186,18 +194,29 @@ public class StackFinitoTest {
      * Test of viewElement method, of class StackFinito.
      */
     @Test
-    public void testViewElement() {
+    //test con un solo elemento nello stack
+    public void testViewElement_elem() {
         System.out.println("viewElement");
-        int index = 0;
         StackFinito instance = new StackFinito();
-        Complex expResult = null;
-        Complex result = instance.viewElement(index);
+        Complex expResult = new Complex(3069.55, -2674.083);
+        instance.push(expResult);
+        Complex result = instance.viewElement(instance.getSize()-1);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-
+    @Test
+    //test con più elementi nello stack
+    public void testViewElement_elems() {
+        System.out.println("viewElement");
+        StackFinito instance = new StackFinito();
+        Complex c1=new Complex(-1874.39, -5036.3398);
+        Complex expResult = new Complex(-2679, 9452.3390);
+        Complex c2=new Complex(-5206.45, 36);
+        instance.push(c1);
+        instance.push(expResult);
+        instance.push(c2);
+        Complex result = instance.viewElement(instance.getSize()-2);
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of stampaDodiceElementi method, of class StackFinito.
