@@ -184,19 +184,7 @@ public class StackFinitoTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of viewSecondLastElement method, of class StackFinito.
-     */
-    @Test
-    public void testViewSecondLastElement() {
-        System.out.println("viewSecondLastElement");
-        StackFinito instance = new StackFinito();
-        Complex expResult = null;
-        Complex result = instance.viewSecondLastElement();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
 
     /**
      * Test of stampaDodiceElementi method, of class StackFinito.
