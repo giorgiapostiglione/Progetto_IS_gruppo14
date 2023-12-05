@@ -40,16 +40,40 @@ public class ComplexTest {
      * Test of getRe method, of class Complex.
      */
     @Test
-    public void testGetRe() {
-        System.out.println("Testing getRe");
-        Complex instance = new Complex(1.0,2.0);
+    public void testGetRe_PositiveReal() {
+        Complex instance = new Complex(1.0, 2.0);
         double expResult = 1.0;
         double result = instance.getRe();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testGetRe_NegativeReal() {
+        Complex instance = new Complex(-3.0, 2.0);
+        double expResult = -3.0;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    @Test
+    public void testGetRe_ImaginaryZero() {
+        Complex instance = new Complex(5.0, 0.0);
+        double expResult = 5.0;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+    }
+    @Test
+    public void testGetRe_RealZero() {
+        Complex instance = new Complex(0.0, 7.0);
+        double expResult = 0.0;
+        double result = instance.getRe();
+        assertEquals(expResult, result, 0.0);
+}
+    /**
+     * Fine Test getRe method
+     */
+    
+    
     /**
      * Test of getIm method, of class Complex.
      */
