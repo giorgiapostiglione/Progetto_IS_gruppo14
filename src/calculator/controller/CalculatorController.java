@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 
 /**
  *
- * @author Carlo Marna
+ * @author Carlo Marna xxx
  */
 public class CalculatorController {
     private final CalculatorModel model;
