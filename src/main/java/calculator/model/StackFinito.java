@@ -59,19 +59,11 @@ public class StackFinito {
      * @param index Indice dell'elemento da visualizzare.
      * @return Elemento di tipo Complex alla posizione specificata nello stack.
      */
-    public Complex viewElement(int index){
-       return memoria.get(index);
+    public Complex viewElement(int index)  throws  ArrayIndexOutOfBoundsException
+    { 
+        return memoria.get(index);
     }
-   
-    /**
-     * Restituisce il secondo elemento dalla cima dello stack.
-     * @return Secondo elemento dalla cima dello stack di tipo Complex.
-     * @throws StackUnderflowException Se lo stack contiene meno di due elementi.
-     */
-    public Complex viewSecondLastElement() throws StackUnderflowException{
-       return memoria.get(memoria.size()-2);
-    }
-    
+      
     /**
      * Restituisce una stringa contenente la rappresentazione di dodici elementi dello stack.
      * @return Stringa contenente la rappresentazione di dodici elementi dello stack.
