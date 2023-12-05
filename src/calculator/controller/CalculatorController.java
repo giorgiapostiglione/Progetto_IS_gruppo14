@@ -12,7 +12,7 @@ import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
-//xyztg
+//xyztgd
 /**
  *
  * @author Carlo Marna
