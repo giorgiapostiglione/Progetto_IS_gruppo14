@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Carlo Marna
+ * @author  Carlo Marna
  */
 /**
  * Classe principale che avvia l'applicazione della calcolatrice.
