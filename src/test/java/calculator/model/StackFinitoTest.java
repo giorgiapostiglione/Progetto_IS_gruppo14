@@ -84,6 +84,7 @@ public class StackFinitoTest {
         StackFinito instance = new StackFinito();
         int expResult=instance.getSize()+1;
         Complex number = new Complex(63.09,-76.17);
+        instance.push(number);
         int result=instance.getSize();
         assertEquals(expResult, result);
     }
@@ -95,7 +96,7 @@ public class StackFinitoTest {
     public void testPop_emptyStack() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
-        Complex expResult = instance.viewElement(instance.getSize()-1);
+        Complex expResult = null;
         Complex result = instance.pop();
         assertEquals(expResult, result);
     }
@@ -132,8 +133,9 @@ public class StackFinitoTest {
     public void testPop_size() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
-        int expResult=instance.getSize()-1;
+        instance.push(new Complex(23.79,-59.83));
         Complex number = instance.pop();
+        int expResult=0;
         int result=instance.getSize();
         assertEquals(expResult, result);
     }
