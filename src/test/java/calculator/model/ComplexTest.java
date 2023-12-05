@@ -286,19 +286,45 @@ public class ComplexTest {
      * Fine Test getIm method
      */
     /**
-     * Test of toString method, of class Complex.
+     * Test of toString methods, of class Complex.
      */
     @Test
-    public void testToString() {
-        System.out.println("toString");
-        Complex instance = null;
-        String expResult = "";
+    public void testToString_RealPart() {
+        System.out.println("Testing testToString_RealPart");
+        Complex instance = new Complex(3.0, 0.0);
+        String expResult = "3.0\n";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testToString_ImaginaryPart() {
+        System.out.println("Testing testToString_ImaginaryPart");
+        Complex instance = new Complex(0.0, -4.0);
+        String expResult = "-4.0j\n";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testToString_RealAndImaginaryParts() {
+        System.out.println("Testing testToString_RealAndImaginaryParts");
+        Complex instance = new Complex(2.3, 5.0);
+        String expResult = "2.3 + 5.0j\n";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testToString_NegativeRealAndImaginary() {
+        System.out.println("Testing testToString_NegativeRealAndImaginary");
+        Complex instance = new Complex(-1.0, -4.0);
+        String expResult = "-1.0 - 4.0j\n";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
+    /**
+     * Fine Test of toString methods, of class Complex.
+     */
     /**
      * Test of add method, of class Complex.
      */
