@@ -118,6 +118,7 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
      * Esegue un'operazione di calcolo della radice quadrata su un numero complesso nello stack.
      * Lancia un'eccezione StackUnderflowException se lo stack è vuoto.
      * @throws StackUnderflowException Se lo stack è vuoto.
+     * @throws StackFullException Se lo stack è pieno.
      */
     @Override
     public void radice() throws StackUnderflowException, StackFullException{
