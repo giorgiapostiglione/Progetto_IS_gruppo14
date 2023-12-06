@@ -108,7 +108,7 @@ public class CalculatorController {
                     break;
                 case "EXE":
                     // Verifica e processa l'input nel campo di visualizzazione
-                    veryfyInput(view.display.getText());
+                    verifyInput(view.display.getText());
                     break;
             }
         }catch (RuntimeException ex){
@@ -139,7 +139,7 @@ public class CalculatorController {
      * @param input L'input inserito nella calcolatrice.
      * @throws RuntimeException Se l'input non è valido o se si verifica un'eccezione durante l'elaborazione.
      */    
-    private void veryfyInput(String input) throws RuntimeException{        
+    private void verifyInput(String input) throws RuntimeException{        
             
             // Regex per verificare se l'input corrisponde a un numero complesso
             // ([+-]?\\d*\\.?\\d+) questa parte corrisponde alla parte reale di un numero complesso.
