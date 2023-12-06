@@ -120,10 +120,14 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
      * @throws StackUnderflowException Se lo stack è vuoto.
      */
     @Override
-    public void radice() throws StackUnderflowException{
+    public void radice() throws StackUnderflowException, StackFullException{
        if(sf.getSize()==0)
             throw new StackUnderflowException();
-        sf.push(Complex.sqrt(sf.pop()));
+       if (sf.getSize()==sf.getMaxSize())
+           throw new StackFullException();
+        Complex c[] = Complex.sqrt(sf.pop());
+        sf.push(c[0]);
+        sf.push(c[1]);
     }
 
     /**
