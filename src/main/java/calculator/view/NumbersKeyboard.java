@@ -54,11 +54,11 @@ public class NumbersKeyboard extends VBox{
         // Imposta i testi per i bottoni delle operazioni numeriche
         numop[0].setText("MO");
         numop[1].setText("MS");
-        numop[2].setText("MD");
+        numop[2].setText("MU");
         numop[3].setText("MC");
         numop[4].setText("C");
         numop[5].setText(">x");
-        numop[6].setText("MU");
+        numop[6].setText("MD");
         numop[7].setText("+/-");
         numop[8].setText("√");
         numop[9].setText("÷");
