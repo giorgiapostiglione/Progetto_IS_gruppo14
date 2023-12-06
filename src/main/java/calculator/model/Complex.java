@@ -92,7 +92,7 @@ public class Complex {
      * @param b Numero complesso per il quale calcolare il reciproco.
      * @return Nuovo numero complesso risultante dal calcolo del reciproco di b.
      */   
-    private static Complex reciproco(Complex b){
+     private static Complex reciproco(Complex b){
         double scale = b.getRe()*b.getRe() + b.getIm()*b.getIm();
         double realPart =b.getRe() / scale;
         double imaginaryPart = -b.getIm() / scale;
