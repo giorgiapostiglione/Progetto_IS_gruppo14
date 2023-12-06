@@ -533,17 +533,79 @@ public class ComplexTest {
     /**
      * Test of div method, of class Complex.
      */
-@Test
-    public void testDivNormalCase() {
-        // Test division of two complex numbers
+    @Test
+        public void testDivNormalCase() {
+       
         Complex a = new Complex(3, 4);
         Complex b = new Complex(1, 2);
         Complex result = Complex.div(b, a);
         Complex expResult = new Complex(2.20, -0.40);
         assertEquals(expResult.toString(), result.toString());
     }
-    
-    
+    @Test
+    public void testDivNumeratorRealZero() {
+        
+        Complex a = new Complex(0, 5);
+        Complex b = new Complex(2, 3);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(1.1538,0.7692);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testDivNumeratorImaginaryZero() {
+        
+        Complex a = new Complex(5, 0);
+        Complex b = new Complex(3,2);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(1.1538, -0.7692);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testDivDenominatorRealZero() {
+        
+        Complex a = new Complex(5, 2);
+        Complex b = new Complex(0, 6);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(0.3333, -0.8333);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testDivDenominatorImaginaryZero() {
+        
+        Complex a = new Complex(5, 2);
+        Complex b = new Complex(3, 0);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(1.6667, 0.6667);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testDivMixedSigns() {
+        
+        Complex a = new Complex(-5, 2);
+        Complex b = new Complex(3, -17);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(-0.1644,-0.2651);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testDivDoubleType() {
+        
+        Complex a = new Complex(0.02, 7.92);
+        Complex b = new Complex(-3.14,0.099);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(0.0731,-2.52);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testDivSmallNumbers() {
+        
+        Complex a = new Complex(1e-10, 1e-10);
+        Complex b = new Complex(1e-6, 1e-6);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(0.0001,0);
+        assertEquals(expResult.toString(), result.toString());
+    }
 /**
      * Fine Test of div method, of class Complex.
      */
@@ -551,17 +613,7 @@ public class ComplexTest {
     /**
      * Test of sqrt method, of class Complex.
      */
-    @Test
-    public void testSqrt() {
-        System.out.println("sqrt");
-        Complex a = null;
-        Complex expResult = null;
-        Complex result = Complex.sqrt(a);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of change method, of class Complex.
      */
