@@ -115,7 +115,7 @@ public class Complex {
      * @param a Numero complesso per il quale calcolare la radice quadrata.
      * @return Nuovo numero complesso risultante dal calcolo della radice quadrata di a.
      */  
-    public static Complex sqrt(Complex a){
+    public static Complex[] sqrt(Complex a){
         // Calcola il modulo e l'angolo del numero complesso
         double modulo = Math.sqrt(a.getRe()*a.getRe() + a.getIm() * a.getIm());
         double angolo = Math.atan2(a.getIm(), a.getRe());
@@ -131,8 +131,10 @@ public class Complex {
         // Arrotonda i valori a tre cifre decimali
         realPart = Math.round(realPart * 1000.0) / 1000.0;
         imaginaryPart = Math.round(imaginaryPart * 1000.0) / 1000.0;
-
-        return new Complex(realPart,imaginaryPart);
+        Complex c [] = new Complex[2];
+        c[0] = new Complex(realPart,imaginaryPart);
+        c[1] = new  Complex(-realPart,-imaginaryPart);
+        return c;
     }
 
     /**

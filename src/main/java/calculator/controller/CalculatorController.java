@@ -140,7 +140,6 @@ public class CalculatorController {
      * @throws RuntimeException Se l'input non è valido o se si verifica un'eccezione durante l'elaborazione.
      */    
     private void veryfyInput(String input) throws RuntimeException{        
-            //String regex = "([+-]?\\d*\\.?\\d+)?([+-]?(\\d*\\.?\\d+)?j)?";
             
             // Regex per verificare se l'input corrisponde a un numero complesso
             // ([+-]?\\d*\\.?\\d+) questa parte corrisponde alla parte reale di un numero complesso.
