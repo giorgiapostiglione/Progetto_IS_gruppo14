@@ -287,7 +287,7 @@ public class ComplexTest {
     */
     
     /**
-     * Test of toString methods, of class Complex.
+     * Test of toString method, of class Complex.
      */
     @Test
     public void testToString_RealPart() {
@@ -324,7 +324,7 @@ public class ComplexTest {
         assertEquals(expResult, result);
     }
     /**
-     * Fine Test of toString methods, of class Complex.
+     * Fine Test of toString method, of class Complex.
      */
     
     /**
@@ -402,7 +402,7 @@ public class ComplexTest {
     
 
     /**
-     * Fine Test of add methods, of class Complex.
+     * Fine Test of add method, of class Complex.
      */
     /**
      * Test of sub method, of class Complex.
@@ -477,7 +477,7 @@ public class ComplexTest {
         assertEquals(expResult.toString(), result.toString());
     }
 /**
-     * Fine Test of sub methods, of class Complex.
+     * Fine Test of sub method, of class Complex.
      */
     /**
      * Test of mul method, of class Complex.
@@ -528,24 +528,24 @@ public class ComplexTest {
     
     
     /**
-     * Fine Test of mul methods, of class Complex.
+     * Fine Test of mul method, of class Complex.
      */
     /**
      * Test of div method, of class Complex.
      */
-    @Test
-    public void testDiv() {
-        System.out.println("div");
-        Complex b = null;
-        Complex a = null;
-        Complex expResult = null;
+@Test
+    public void testDivNormalCase() {
+        // Test division of two complex numbers
+        Complex a = new Complex(3, 4);
+        Complex b = new Complex(1, 2);
         Complex result = Complex.div(b, a);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Complex expResult = new Complex(2.20, -0.40);
+        assertEquals(expResult.toString(), result.toString());
     }
+    
+    
 /**
-     * Fine Test of div methods, of class Complex.
+     * Fine Test of div method, of class Complex.
      */
     /**
     /**
