@@ -44,11 +44,18 @@ public class CalculatorModelTest {
     public void testGetSf() {
         System.out.println("getSf");
         CalculatorModel instance = new CalculatorModel();
-        StackFinito expResult = null;
+        Complex c= new Complex(4,8);
+        
         StackFinito result = instance.getSf();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(0, result.getSize());
+        try{
+        instance.insertNumber(8, 4);
+        assertEquals(c.toString(),result.viewElement(0).toString());
+        assertEquals(1, result.getSize());
+        
+        }catch(StackFullException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
     }
 
     /**
@@ -136,7 +143,9 @@ public class CalculatorModelTest {
             // Questo è il risultato atteso
         }
     }
-
+/**
+     * Fine test of insertNumber method, of class CalculatorModel.
+     */
     /**
      * Test of somma method, of class CalculatorModel.
      */
