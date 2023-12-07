@@ -4,6 +4,7 @@
  */
 package calculator.model;
 
+import calculator.exception.StackFullException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -68,14 +69,72 @@ public class CalculatorModelTest {
      * Test of insertNumber method, of class CalculatorModel.
      */
     @Test
-    public void testInsertNumber() {
-        System.out.println("insertNumber");
+    public void testInsertNumberPositive() {
+        System.out.println("testInsertNumberPositive");
+        double im = 3.5;
+        double re = 2.0;
+        CalculatorModel instance = new CalculatorModel();
+
+        try {
+            instance.insertNumber(im, re);
+            
+            
+
+        } catch (StackFullException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testInsertNumberNegative() {
+        System.out.println("testInsertNumberNegative");
+        double im = -1.5;
+        double re = -4.0;
+        CalculatorModel instance = new CalculatorModel();
+
+        try {
+            instance.insertNumber(im, re);
+            
+
+        } catch (StackFullException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testInsertNumberZero() {
+        System.out.println("testInsertNumberZero");
         double im = 0.0;
         double re = 0.0;
         CalculatorModel instance = new CalculatorModel();
-        instance.insertNumber(im, re);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        try {
+            instance.insertNumber(im, re);
+            
+
+        } catch (StackFullException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+    }
+
+    
+
+    @Test
+    public void testInsertNumberStackFullException() {
+        System.out.println("testInsertNumberStackFullException");
+        
+        
+        CalculatorModel instance = new CalculatorModel();
+
+        try {
+            for(int i=0;i<51;i++){
+            instance.insertNumber(i*3.33,i*2.41 );
+            }
+            
+            fail("Expected StackFullException, but it was not thrown.");
+        } catch (StackFullException ex) {
+            // Questo è il risultato atteso
+        }
     }
 
     /**
