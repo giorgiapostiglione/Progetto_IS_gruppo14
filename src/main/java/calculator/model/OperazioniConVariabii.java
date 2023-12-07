@@ -31,6 +31,6 @@ void duplicazioneVariabile(char c);
  * Assegna un valore alla variabile identificata dal carattere specificato.
  * @param c Carattere identificativo della variabile.
  */
-void assegnaVaribile(char c);
+void assegnaVariabile(char c);
 
 }

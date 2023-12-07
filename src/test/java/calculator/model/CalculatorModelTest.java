@@ -5,6 +5,7 @@
 package calculator.model;
 
 import calculator.exception.StackFullException;
+import calculator.exception.StackUnderflowException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -65,11 +66,18 @@ public class CalculatorModelTest {
     public void testToStringHM() {
         System.out.println("toStringHM");
         CalculatorModel instance = new CalculatorModel();
-        String expResult = "";
+        instance.insertNumber(4, 7);
+        instance.insertNumber(3, 5);
+        try{
+            instance.assegnaVariabile('c');
+            instance.assegnaVariabile('d');
+        }catch(StackUnderflowException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        String expResult = "c=5.0 + 3.0j\nd=7.0 + 4.0j\n";
         String result = instance.toStringHM();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -325,7 +333,7 @@ public class CalculatorModelTest {
         System.out.println("assegnaVaribile");
         char c = ' ';
         CalculatorModel instance = new CalculatorModel();
-        instance.assegnaVaribile(c);
+        instance.assegnaVariabile(c);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

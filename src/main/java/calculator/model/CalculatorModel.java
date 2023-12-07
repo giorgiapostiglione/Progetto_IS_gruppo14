@@ -275,7 +275,7 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
      * @throws StackUnderflowException Se lo stack è vuoto.
      */
     @Override
-    public void assegnaVaribile(char c) throws StackUnderflowException{
+    public void assegnaVariabile(char c) throws StackUnderflowException{
         if(sf.getSize()==0)
             throw new StackUnderflowException();
         if(variabili.containsKey(c))

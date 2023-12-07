@@ -208,7 +208,7 @@ public class CalculatorController {
                                     model.duplicazioneVariabile(secondaParte);
                                     break;
                                 case(">x"):
-                                    model.assegnaVaribile(secondaParte);
+                                    model.assegnaVariabile(secondaParte);
                                     break;
                                 case("+x"):
                                     model.sommaVariabile(secondaParte);
