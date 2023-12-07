@@ -187,84 +187,108 @@ public class CalculatorModelTest {
      * Fine del test del metodo insertNumber della classe CalculatorModel.
      */
 
+
     /**
      * Test of somma method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Parte reale e immaginaria di entrambi i numeri complessi sono positivi.
      */
     @Test
     public void testSomma() {
         System.out.println("somma");
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-        Complex c1,c2;
-        c1=new Complex(4,9);
-        c2=new Complex(3,-3);
+        StackFinito sf = instance.getSf();
+        Complex c1, c2;
+        c1 = new Complex(4, 9);
+        c2 = new Complex(3, -3);
         sf.push(c1);
         sf.push(c2);
-        try{
-        instance.somma();
-        }catch(NotEnoughElementException ex){
-             fail("Unexpected exception: " + ex.getMessage());
+        try {
+            // Metodo testato con numeri complessi validi
+            instance.somma();
+        } catch (NotEnoughElementException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
         }
-        assertEquals(sf.viewElement(sf.getSize()-1).toString(),Complex.add(c1, c2).toString());
-        
-        
+        // Verifica se la somma è corretta
+        assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.add(c1, c2).toString());
     }
+
+    /**
+     * Test of sommaException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Meno di due numeri complessi nello stack.
+     */
     @Test
     public void testSommaException() {
         System.out.println("sommaException");
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
+        StackFinito sf = instance.getSf();
         Complex c1;
-        c1=new Complex(4,9);
-        
+        c1 = new Complex(4, 9);
+
         sf.push(c1);
-        
-        try{
-        instance.somma();
-        fail("Expected NotEnoughElementException");
-        }catch(NotEnoughElementException ex){
-             
+
+        try {
+            // Metodo testato con meno di due numeri complessi nello stack
+            instance.somma();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (NotEnoughElementException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
         }
-        
-        
-        
     }
 
     /**
      * Test of differenza method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Parte reale e immaginaria del primo numero complesso è maggiore del secondo.
      */
     @Test
     public void testDifferenza() {
         System.out.println("differenza");
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-        Complex c1,c2;
-        c1=new Complex(4,9);
-        c2=new Complex(3,4);
+        StackFinito sf = instance.getSf();
+        Complex c1, c2;
+        c1 = new Complex(4, 9);
+        c2 = new Complex(3, 4);
         sf.push(c1);
         sf.push(c2);
-        try{
-        instance.differenza();
-        }catch(NotEnoughElementException ex){
-             fail("Unexpected exception: " + ex.getMessage());
+        try {
+            // Metodo testato con numeri complessi validi
+            instance.differenza();
+        } catch (NotEnoughElementException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
         }
-        assertEquals(sf.viewElement(sf.getSize()-1).toString(),Complex.sub(c2,c1).toString());
+        // Verifica se la differenza è corretta
+        assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.sub(c2, c1).toString());
     }
+
+    /**
+     * Test of differenzaException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Meno di due numeri complessi nello stack.
+     */
     @Test
     public void testDifferenzaException() {
         System.out.println("DifferenzaException");
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
+        StackFinito sf = instance.getSf();
         Complex c1;
-        c1=new Complex(4,9);
-        
+        c1 = new Complex(4, 9);
+
         sf.push(c1);
-        
-        try{
-        instance.differenza();
-        fail("Expected NotEnoughElementException");
-        }catch(NotEnoughElementException ex){
-             
+
+        try {
+            // Metodo testato con meno di due numeri complessi nello stack
+            instance.differenza();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (NotEnoughElementException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
         }
     }
     /**
