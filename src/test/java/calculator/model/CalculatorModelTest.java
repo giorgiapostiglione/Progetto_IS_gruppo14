@@ -38,54 +38,69 @@ public class CalculatorModelTest {
     @AfterEach
     public void tearDown() {
     }
-
     /**
-     * Test of getSf method, of class CalculatorModel.
+     * Test del metodo getSf della classe CalculatorModel.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: qualsiasi numero reale
+     *   Parte immaginaria: qualsiasi numero reale
      */
     @Test
     public void testGetSf() {
+        // Test del metodo getSf che recupera lo stack del modello di calcolatrice.
         System.out.println("getSf");
         CalculatorModel instance = new CalculatorModel();
-        Complex c= new Complex(4,8);
-        
+        Complex c = new Complex(4, 8);
+
+        // Test della dimensione dello stack quando nessun numero è inserito.
         StackFinito result = instance.getSf();
         assertEquals(0, result.getSize());
-        try{
-        instance.insertNumber(8, 4);
-        assertEquals(c.toString(),result.viewElement(0).toString());
-        assertEquals(1, result.getSize());
-        
-        }catch(StackFullException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+        try {
+            // Inserire un numero complesso e verificare se la dimensione e il contenuto dello stack sono corretti.
+            instance.insertNumber(8, 4);
+            assertEquals(c.toString(), result.viewElement(0).toString());
+            assertEquals(1, result.getSize());
+
+        } catch (StackFullException ex) {
+            fail("Eccezione inaspettata: " + ex.getMessage());
         }
     }
 
     /**
-     * Test of toStringHM method, of class CalculatorModel.
+     * Test del metodo toStringHM della classe CalculatorModel.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: qualsiasi numero reale
+     *   Parte immaginaria: qualsiasi numero reale
      */
     @Test
     public void testToStringHM() {
+        // Test del metodo toStringHM che restituisce una rappresentazione stringa delle variabili assegnate.
         System.out.println("toStringHM");
         CalculatorModel instance = new CalculatorModel();
         instance.insertNumber(4, 7);
         instance.insertNumber(3, 5);
-        try{
+        try {
             instance.assegnaVariabile('c');
             instance.assegnaVariabile('d');
-        }catch(StackUnderflowException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+        } catch (StackUnderflowException ex) {
+            fail("Eccezione inaspettata: " + ex.getMessage());
         }
         String expResult = "c=5.0 + 3.0j\nd=7.0 + 4.0j\n";
         String result = instance.toStringHM();
         assertEquals(expResult, result);
-        
     }
 
     /**
-     * Test of insertNumber method, of class CalculatorModel.
+     * Test del metodo insertNumber della classe CalculatorModel con numero positivo.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: numero positivo
+     *   Parte immaginaria: numero positivo
      */
     @Test
     public void testInsertNumberPositive() {
+        // Test del metodo insertNumber con numero complesso positivo.
         System.out.println("testInsertNumberPositive");
         double im = 3.5;
         double re = 2.0;
@@ -93,16 +108,22 @@ public class CalculatorModelTest {
 
         try {
             instance.insertNumber(im, re);
-            
-            
 
         } catch (StackFullException ex) {
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione inaspettata: " + ex.getMessage());
         }
     }
 
+    /**
+     * Test del metodo insertNumber della classe CalculatorModel con numero negativo.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: numero negativo
+     *   Parte immaginaria: numero negativo
+     */
     @Test
     public void testInsertNumberNegative() {
+        // Test del metodo insertNumber con numero complesso negativo.
         System.out.println("testInsertNumberNegative");
         double im = -1.5;
         double re = -4.0;
@@ -110,15 +131,22 @@ public class CalculatorModelTest {
 
         try {
             instance.insertNumber(im, re);
-            
 
         } catch (StackFullException ex) {
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione inaspettata: " + ex.getMessage());
         }
     }
 
+    /**
+     * Test del metodo insertNumber della classe CalculatorModel con numero zero.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: numero zero
+     *   Parte immaginaria: numero zero
+     */
     @Test
     public void testInsertNumberZero() {
+        // Test del metodo insertNumber con numero complesso zero.
         System.out.println("testInsertNumberZero");
         double im = 0.0;
         double re = 0.0;
@@ -126,35 +154,39 @@ public class CalculatorModelTest {
 
         try {
             instance.insertNumber(im, re);
-            
 
         } catch (StackFullException ex) {
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione inaspettata: " + ex.getMessage());
         }
     }
 
-    
-
+    /**
+     * Test del metodo insertNumber della classe CalculatorModel con StackFullException.
+     * Classe testata: CalculatorModel
+     * Classe di equivalenza testata:
+     *   Parte reale: qualsiasi numero reale
+     *   Parte immaginaria: qualsiasi numero reale
+     */
     @Test
     public void testInsertNumberStackFullException() {
+        // Test del metodo insertNumber con StackFullException.
         System.out.println("testInsertNumberStackFullException");
-        
-        
         CalculatorModel instance = new CalculatorModel();
 
         try {
-            for(int i=0;i<51;i++){
-            instance.insertNumber(i*3.33,i*2.41 );
+            for (int i = 0; i < 51; i++) {
+                instance.insertNumber(i * 3.33, i * 2.41);
             }
-            
-            fail("Expected StackFullException, but it was not thrown.");
+
+            fail("Ci si aspetta StackFullException, ma non è stata lanciata.");
         } catch (StackFullException ex) {
             // Questo è il risultato atteso
         }
     }
-/**
-     * Fine test of insertNumber method, of class CalculatorModel.
+    /**
+     * Fine del test del metodo insertNumber della classe CalculatorModel.
      */
+
     /**
      * Test of somma method, of class CalculatorModel.
      */
