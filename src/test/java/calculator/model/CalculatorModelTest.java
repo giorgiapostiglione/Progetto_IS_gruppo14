@@ -4,6 +4,7 @@
  */
 package calculator.model;
 
+import calculator.exception.NotEnoughElementException;
 import calculator.exception.StackFullException;
 import calculator.exception.StackUnderflowException;
 import org.junit.jupiter.api.AfterEach;
@@ -161,9 +162,40 @@ public class CalculatorModelTest {
     public void testSomma() {
         System.out.println("somma");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+        Complex c1,c2;
+        c1=new Complex(4,9);
+        c2=new Complex(3,-3);
+        sf.push(c1);
+        sf.push(c2);
+        try{
         instance.somma();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        }catch(NotEnoughElementException ex){
+             fail("Unexpected exception: " + ex.getMessage());
+        }
+        assertEquals(sf.viewElement(sf.getSize()-1).toString(),Complex.add(c1, c2).toString());
+        
+        
+    }
+    @Test
+    public void testSommaException() {
+        System.out.println("sommaException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+        Complex c1;
+        c1=new Complex(4,9);
+        
+        sf.push(c1);
+        
+        try{
+        instance.somma();
+        fail("Expected NotEnoughElementException");
+        }catch(NotEnoughElementException ex){
+             
+        }
+        
+        
+        
     }
 
     /**
@@ -173,11 +205,36 @@ public class CalculatorModelTest {
     public void testDifferenza() {
         System.out.println("differenza");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+        Complex c1,c2;
+        c1=new Complex(4,9);
+        c2=new Complex(3,4);
+        sf.push(c1);
+        sf.push(c2);
+        try{
         instance.differenza();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        }catch(NotEnoughElementException ex){
+             fail("Unexpected exception: " + ex.getMessage());
+        }
+        assertEquals(sf.viewElement(sf.getSize()-1).toString(),Complex.sub(c2,c1).toString());
     }
-
+    @Test
+    public void testDifferenzaException() {
+        System.out.println("DifferenzaException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+        Complex c1;
+        c1=new Complex(4,9);
+        
+        sf.push(c1);
+        
+        try{
+        instance.differenza();
+        fail("Expected NotEnoughElementException");
+        }catch(NotEnoughElementException ex){
+             
+        }
+    }
     /**
      * Test of prodotto method, of class CalculatorModel.
      */
