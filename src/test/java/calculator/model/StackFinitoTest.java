@@ -4,6 +4,7 @@
  */
 package calculator.model;
 
+import calculator.exception.StackFullException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -82,10 +83,15 @@ public class StackFinitoTest {
     public void testPush_full() {
         System.out.println("push");
         StackFinito instance = new StackFinito();
+        try{
         for(int i=0; i<50; i++){
             instance.push(new Complex(Math.random()*i, Math.random()*i));
         }
         instance.push(new Complex(-478.884, 891.65));
+        fail("Eccezione non lanciata come previsto");}
+        catch(StackFullException ex){
+                
+                }
     }
 
     /**
