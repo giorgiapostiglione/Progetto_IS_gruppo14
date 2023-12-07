@@ -826,7 +826,18 @@ public class ComplexTest {
         Complex expResult = new Complex(0.0001, 0);
         assertEquals(expResult.toString(), result.toString());
     }
-
+    /**
+     * Testa il metodo div della classe Complex con numeri molto grandi.
+     * Classe d'equivalenza: Numeri molto grandi.
+     */
+    @Test
+    public void testDivBigNumbers() {
+        Complex a = new Complex(1e10, 1e10);
+        Complex b = new Complex(10, 10);
+        Complex result = Complex.div(b, a);
+        Complex expResult = new Complex(1000000000, 0);
+        assertEquals(expResult.toString(), result.toString());
+    }
     /**
      * Fine del test del metodo div della classe Complex.
      */
@@ -835,18 +846,137 @@ public class ComplexTest {
      * Testa il metodo sqrt della classe Complex.
      * Non sono forniti esempi di classe d'equivalenza specifica per questo test.
      */
+@Test
+    public void testSqrtPositiveComplex() {
+        Complex input = new Complex(3, 4);
+        Complex[] result = Complex.sqrt(input);
+        
+        // Result 1
+        Complex expResult1 = new Complex(2, 1);
+        assertEquals(expResult1.toString(), result[0].toString());
+        
+        // Result 2
+        Complex expResult2 = new Complex(-2, -1);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
 
+    @Test
+    public void testSqrtNegativeComplex() {
+        Complex input = new Complex(-2, 5);
+        Complex[] result = Complex.sqrt(input);
+
+        // Result 1
+        Complex expResult1 = new Complex(1.301, 1.922);
+        assertEquals(expResult1.toString(), result[0].toString());
+
+        // Result 2
+        Complex expResult2 = new Complex(-1.301, -1.922);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
+
+    @Test
+    public void testSqrtPureImaginaryComplex() {
+        Complex input = new Complex(0, 18);
+        Complex[] result = Complex.sqrt(input);
+
+        // Result 1
+        Complex expResult1 = new Complex(3,3);
+        assertEquals(expResult1.toString(), result[0].toString());
+
+        // Result 2
+        Complex expResult2 = new Complex(-3, -3);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
+
+    @Test
+    public void testSqrtPureRealComplex() {
+        Complex input = new Complex(9, 0);
+        Complex[] result = Complex.sqrt(input);
+
+        // Result 1
+        Complex expResult1 = new Complex(3, 0);
+        assertEquals(expResult1.toString(), result[0].toString());
+
+        // Result 2
+        Complex expResult2 = new Complex(-3, 0);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
+
+    @Test
+    public void testSqrtImaginaryZeroComplex() {
+        Complex input = new Complex(6, 0);
+        Complex[] result = Complex.sqrt(input);
+
+        // Result 1
+        Complex expResult1 = new Complex(2.449, 0);
+        assertEquals(expResult1.toString(), result[0].toString());
+
+        // Result 2
+        Complex expResult2 = new Complex(-2.449, 0);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
+
+    @Test
+    public void testSqrtRealZeroComplex() {
+        Complex input = new Complex(0, -8);
+        Complex[] result = Complex.sqrt(input);
+
+        // Result 1
+        Complex expResult1 = new Complex(2,-2);
+        assertEquals(expResult1.toString(), result[0].toString());
+
+        // Result 2
+        Complex expResult2 = new Complex(-2, 2);
+        assertEquals(expResult2.toString(), result[1].toString());
+    }
+    /**
+     * Fine del test del metodo sqrt della classe Complex.
+     */
     /**
      * Testa il metodo change della classe Complex.
      * Classe d'equivalenza: Numero complesso nullo.
      */
-    @Test
-    public void testChange() {
-        Complex a = null;
-        Complex expResult = null;
-        Complex result = Complex.change(a);
-        assertEquals(expResult, result);
+   @Test
+    public void testChangePositiveComplex() {
+        Complex input = new Complex(3, 4);
+        Complex result = Complex.change(input);
+
+        Complex expResult = new Complex(-3, -4);
+        assertEquals(expResult.toString(), result.toString());
     }
 
+    @Test
+    public void testChangeRealNegativeComplex() {
+        Complex input = new Complex(-29, 51);
+        Complex result = Complex.change(input);
+
+        Complex expResult = new Complex(29,-51);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testChangeComplexNegativeComplex() {
+        Complex input = new Complex(11, -15);
+        Complex result = Complex.change(input);
+
+        Complex expResult = new Complex(-11, 15);
+        assertEquals(expResult.toString(), result.toString());
+    }
+    @Test
+    public void testChangeVeryLargeComplex() {
+        Complex input = new Complex(1e100, 1e100);
+        Complex result = Complex.change(input);
+
+        Complex expResult = new Complex(-1e100, -1e100);
+        assertEquals(expResult.toString(), result.toString());
+    }
+
+    @Test
+    public void testChangeVerySmallComplex() {
+        Complex input = new Complex(1e-100, 1e-100);
+        Complex result = Complex.change(input);
+
+        Complex expResult = new Complex(-1e-100, -1e-100);
+        assertEquals(expResult.toString(), result.toString());
+    }
     
 }
