@@ -841,25 +841,29 @@ public class ComplexTest {
     /**
      * Fine del test del metodo div della classe Complex.
      */
-
+ 
     /**
      * Testa il metodo sqrt della classe Complex.
-     * Non sono forniti esempi di classe d'equivalenza specifica per questo test.
+     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria positive.
      */
-@Test
+    @Test
     public void testSqrtPositiveComplex() {
         Complex input = new Complex(3, 4);
         Complex[] result = Complex.sqrt(input);
-        
+
         // Result 1
         Complex expResult1 = new Complex(2, 1);
         assertEquals(expResult1.toString(), result[0].toString());
-        
+
         // Result 2
         Complex expResult2 = new Complex(-2, -1);
         assertEquals(expResult2.toString(), result[1].toString());
     }
 
+    /**
+     * Testa il metodo sqrt della classe Complex.
+     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria negative.
+     */
     @Test
     public void testSqrtNegativeComplex() {
         Complex input = new Complex(-2, 5);
@@ -874,13 +878,17 @@ public class ComplexTest {
         assertEquals(expResult2.toString(), result[1].toString());
     }
 
+    /**
+     * Testa il metodo sqrt della classe Complex.
+     * Classe d'equivalenza: Numeri puramente immaginari.
+     */
     @Test
     public void testSqrtPureImaginaryComplex() {
         Complex input = new Complex(0, 18);
         Complex[] result = Complex.sqrt(input);
 
         // Result 1
-        Complex expResult1 = new Complex(3,3);
+        Complex expResult1 = new Complex(3, 3);
         assertEquals(expResult1.toString(), result[0].toString());
 
         // Result 2
@@ -888,6 +896,10 @@ public class ComplexTest {
         assertEquals(expResult2.toString(), result[1].toString());
     }
 
+    /**
+     * Testa il metodo sqrt della classe Complex.
+     * Classe d'equivalenza: Numeri puramente reali.
+     */
     @Test
     public void testSqrtPureRealComplex() {
         Complex input = new Complex(9, 0);
@@ -902,6 +914,10 @@ public class ComplexTest {
         assertEquals(expResult2.toString(), result[1].toString());
     }
 
+    /**
+     * Testa il metodo sqrt della classe Complex.
+     * Classe d'equivalenza: Numeri complessi con parte immaginaria zero.
+     */
     @Test
     public void testSqrtImaginaryZeroComplex() {
         Complex input = new Complex(6, 0);
@@ -916,27 +932,33 @@ public class ComplexTest {
         assertEquals(expResult2.toString(), result[1].toString());
     }
 
+    /**
+     * Testa il metodo sqrt della classe Complex.
+     * Classe d'equivalenza: Numeri complessi con parte reale zero.
+     */
     @Test
     public void testSqrtRealZeroComplex() {
         Complex input = new Complex(0, -8);
         Complex[] result = Complex.sqrt(input);
 
         // Result 1
-        Complex expResult1 = new Complex(2,-2);
+        Complex expResult1 = new Complex(2, -2);
         assertEquals(expResult1.toString(), result[0].toString());
 
         // Result 2
         Complex expResult2 = new Complex(-2, 2);
         assertEquals(expResult2.toString(), result[1].toString());
     }
+
     /**
      * Fine del test del metodo sqrt della classe Complex.
      */
+
     /**
      * Testa il metodo change della classe Complex.
      * Classe d'equivalenza: Numero complesso nullo.
      */
-   @Test
+    @Test
     public void testChangePositiveComplex() {
         Complex input = new Complex(3, 4);
         Complex result = Complex.change(input);
@@ -945,14 +967,23 @@ public class ComplexTest {
         assertEquals(expResult.toString(), result.toString());
     }
 
+    /**
+     * Testa il metodo change della classe Complex.
+     * Classe d'equivalenza: Numeri complessi con parte reale negativa e immaginaria positiva.
+     */
     @Test
     public void testChangeRealNegativeComplex() {
         Complex input = new Complex(-29, 51);
         Complex result = Complex.change(input);
 
-        Complex expResult = new Complex(29,-51);
+        Complex expResult = new Complex(29, -51);
         assertEquals(expResult.toString(), result.toString());
     }
+
+    /**
+     * Testa il metodo change della classe Complex.
+     * Classe d'equivalenza: Numeri complessi con parte reale positiva e immaginaria negativa.
+     */
     @Test
     public void testChangeComplexNegativeComplex() {
         Complex input = new Complex(11, -15);
@@ -961,6 +992,11 @@ public class ComplexTest {
         Complex expResult = new Complex(-11, 15);
         assertEquals(expResult.toString(), result.toString());
     }
+
+    /**
+     * Testa il metodo change della classe Complex.
+     * Classe d'equivalenza: Numeri complessi molto grandi.
+     */
     @Test
     public void testChangeVeryLargeComplex() {
         Complex input = new Complex(1e100, 1e100);
@@ -970,6 +1006,10 @@ public class ComplexTest {
         assertEquals(expResult.toString(), result.toString());
     }
 
+    /**
+     * Testa il metodo change della classe Complex.
+     * Classe d'equivalenza: Numeri complessi molto piccoli.
+     */
     @Test
     public void testChangeVerySmallComplex() {
         Complex input = new Complex(1e-100, 1e-100);
