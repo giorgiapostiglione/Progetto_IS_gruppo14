@@ -35,12 +35,13 @@ public class StackFinitoTest {
     @AfterEach
     public void tearDown() {
     }
-
+    
     /**
-     * Test of push method, of class StackFinito.
+     * Test del metodo push della classe StackFinito.
+     * Verifica che l'elemento presente in cima allo stack sia uguale a quello inserito.
+     * Classe d'equivalenza testata: Parte reale e immaginaria con valori arbitrari (-55.603, 81).
      */
     @Test
-    //verifico che  l'elemento presente in cima allo stack è uguale a quello inserito
     public void testPush_elem() {
         System.out.println("push");
         Complex element = new Complex(-55.603, 81);
@@ -48,8 +49,13 @@ public class StackFinitoTest {
         instance.push(element);
         assertEquals(instance.viewElement(instance.getSize()-1), element);
     }
+
+    /**
+     * Test del metodo push della classe StackFinito.
+     * Verifica che gli ultimi elementi presenti in cima allo stack siano uguali a quelli inseriti.
+     * Classe d'equivalenza testata: Parte reale e immaginaria con valori arbitrari per quattro elementi diversi.
+     */
     @Test
-    //verifico che  gli ultimi elementi presenti in cima allo stack sono uguali a quelli inseriti
     public void testPush_elems() {
         System.out.println("push");
         Complex element1 = new Complex(-73.65, 94.26);
@@ -66,8 +72,13 @@ public class StackFinitoTest {
         assertEquals(instance.viewElement(instance.getSize()-2), element3);
         assertEquals(instance.viewElement(instance.getSize()-1), element4);
     }
+
+    /**
+     * Test del metodo push della classe StackFinito.
+     * Verifica che la condizione di stack pieno venga riconosciuta.
+     * Classe d'equivalenza testata: Inserimento di 50 elementi casuali.
+     */
     @Test
-    //verifico che la condizione di stack pieno venga riconosciuta
     public void testPush_full() {
         System.out.println("push");
         StackFinito instance = new StackFinito();
@@ -75,10 +86,14 @@ public class StackFinitoTest {
             instance.push(new Complex(Math.random()*i, Math.random()*i));
         }
         instance.push(new Complex(-478.884, 891.65));
-        
     }
+
+    /**
+     * Test del metodo push della classe StackFinito.
+     * Verifica che la dimensione dello stack aumenti dopo la push.
+     * Classe d'equivalenza testata: Inserimento di un elemento con parte reale e immaginaria specifici.
+     */
     @Test
-    //verifico che la dimensione dello stack aumenti dopo la push
     public void testPush_size() {
         System.out.println("push");
         StackFinito instance = new StackFinito();
@@ -88,11 +103,13 @@ public class StackFinitoTest {
         int result=instance.getSize();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of pop method, of class StackFinito.
+     * Test del metodo pop della classe StackFinito.
+     * Verifica che l'elemento inserito sia uguale a quello prelevato dalla pop in caso di stack vuoto.
+     * Classe d'equivalenza testata: Nessun elemento nello stack.
      */
     @Test
-    //verifico che l'elemento inserito sia uguale a quello prelevato dalla pop: stack vuoto
     public void testPop_emptyStack() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
@@ -100,8 +117,13 @@ public class StackFinitoTest {
         Complex result = instance.pop();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test del metodo pop della classe StackFinito.
+     * Verifica che l'elemento inserito sia uguale a quello prelevato dalla pop in caso di stack con un elemento.
+     * Classe d'equivalenza testata: Un elemento nello stack con parte reale e immaginaria specifici.
+     */
     @Test
-    //verifico che l'elemento inserito sia uguale a quello prelevato dalla pop: stack con un elemento
     public void testPop_elem() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
@@ -110,8 +132,13 @@ public class StackFinitoTest {
         Complex result = instance.pop();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test del metodo pop della classe StackFinito.
+     * Verifica che l'elemento inserito sia uguale a quello prelevato dalla pop in caso di stack con più elementi.
+     * Classe d'equivalenza testata: Più elementi nello stack con parti reali e immaginarie specifiche.
+     */
     @Test
-    //verifico che l'elemento inserito sia uguale a quello prelevato dalla pop: stack con più elementi
     public void testPop_elems() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
@@ -128,8 +155,13 @@ public class StackFinitoTest {
         assertEquals(expResult2, result2);
         assertEquals(expResult3, result3);
     }
+
+    /**
+     * Test del metodo pop della classe StackFinito.
+     * Verifica che la dimensione dello stack diminuisca dopo la pop.
+     * Classe d'equivalenza testata: Rimozione di un elemento dallo stack.
+     */
     @Test
-    //verifico che la dimensione dello stack diminuisca dopo la pop
     public void testPop_size() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
@@ -141,10 +173,11 @@ public class StackFinitoTest {
     }
 
     /**
-     * Test of getSize method, of class StackFinito.
+     * Test del metodo getSize della classe StackFinito.
+     * Verifica che getSize restituisca la dimensione effettiva dello stack dopo una push.
+     * Classe d'equivalenza testata: Inserimento di tre elementi nello stack.
      */
     @Test
-    //verfico che la getSize restituisca la dimensione effettiva dello stack
     public void testGetSize_push() {
         System.out.println("getSize");
         StackFinito instance = new StackFinito();
@@ -155,21 +188,33 @@ public class StackFinitoTest {
         int result = instance.getSize();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test del metodo getSize della classe StackFinito.
+     * Verifica che getSize restituisca la dimensione effettiva dello stack dopo una push e una pop.
+     * Classe d'equivalenza testata: Inserimento di tre elementi e rimozione di uno.
+     */
     @Test
-    //verfico che la getSize restituisca la dimensione effettiva dello stack
     public void testGetSize_pushAndPop() {
         System.out.println("getSize");
         StackFinito instance = new StackFinito();
         instance.push(new Complex(-33.467, -64.23));
         instance.push(new Complex(-85.33, 26));
         instance.push(new Complex(77, 32.47));
-        Complex number=instance.pop();
+
+
+     Complex number=instance.pop();
         int expResult = 2;
         int result = instance.getSize();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test del metodo getSize della classe StackFinito.
+     * Verifica che getSize restituisca 0 essendo lo stack vuoto.
+     * Classe d'equivalenza testata: Stack vuoto.
+     */
     @Test
-    //verfico che la getSize 0 essendo lo stack vuoto
     public void testGetSize_emptyStack() {
         System.out.println("getSize");
         StackFinito instance = new StackFinito();
@@ -177,11 +222,13 @@ public class StackFinitoTest {
         int result = instance.getSize();
         assertEquals(expResult, result);
     }
+
     /**
-     * Test of getMaxSize method, of class StackFinito.
+     * Test del metodo getMaxSize della classe StackFinito.
+     * Verifica che getMaxSize prelevi correttamente l'attributo privato maxSize.
+     * Classe d'equivalenza testata: Nessuna inserzione o rimozione di elementi.
      */
     @Test
-    //verifico che getMaxSize prelevi correttamente l'attributo privato maxSize
     public void testGetMaxSize() {
         System.out.println("getMaxSize");
         StackFinito instance = new StackFinito();
@@ -191,10 +238,11 @@ public class StackFinitoTest {
     }
 
     /**
-     * Test of viewElement method, of class StackFinito.
+     * Test del metodo viewElement della classe StackFinito.
+     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con un solo elemento.
+     * Classe d'equivalenza testata: Stack con un solo elemento.
      */
     @Test
-    //test con un solo elemento nello stack
     public void testViewElement_elem() {
         System.out.println("viewElement");
         StackFinito instance = new StackFinito();
@@ -203,8 +251,13 @@ public class StackFinitoTest {
         Complex result = instance.viewElement(instance.getSize()-1);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test del metodo viewElement della classe StackFinito.
+     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con più elementi.
+     * Classe d'equivalenza testata: Stack con più elementi.
+     */
     @Test
-    //test con più elementi nello stack
     public void testViewElement_elems() {
         System.out.println("viewElement");
         StackFinito instance = new StackFinito();
@@ -219,7 +272,9 @@ public class StackFinitoTest {
     }
 
     /**
-     * Test of stampaDodiceElementi method, of class StackFinito.
+     * Test del metodo stampaDodiceElementi della classe StackFinito.
+     * Verifica che stampaDodiceElementi restituisca una stringa vuota per uno stack vuoto.
+     * Classe d'equivalenza testata: Stack vuoto.
      */
     @Test
     public void testStampaDodiceElementi() {
@@ -231,5 +286,4 @@ public class StackFinitoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
 }
