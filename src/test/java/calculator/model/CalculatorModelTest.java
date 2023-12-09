@@ -4,6 +4,7 @@
  */
 package calculator.model;
 
+import calculator.exception.DivisionByZeroException;
 import calculator.exception.NotEnoughElementException;
 import calculator.exception.StackFullException;
 import calculator.exception.StackUnderflowException;
@@ -298,23 +299,102 @@ public class CalculatorModelTest {
     public void testProdotto() {
         System.out.println("prodotto");
         CalculatorModel instance = new CalculatorModel();
-        instance.prodotto();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf = instance.getSf();
+        Complex c1, c2;
+        c1 = new Complex(11, 3);
+        c2 = new Complex(3.2, -7.2);
+        sf.push(c1);
+        sf.push(c2);
+        try {
+            // Metodo testato con numeri complessi validi
+            instance.prodotto();
+        } catch (NotEnoughElementException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        // Verifica se il prodotto è corretto
+        assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.mul(c2, c1).toString());
     }
+    @Test
+    public void testProdottoException() {
+        System.out.println("ProdottoException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1;
+        c1 = new Complex(14, 2);
 
+        sf.push(c1);
+
+        try {
+            // Metodo testato con meno di due numeri complessi nello stack
+            instance.prodotto();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (NotEnoughElementException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+    }
     /**
      * Test of rapporto method, of class CalculatorModel.
      */
     @Test
     public void testRapporto() {
-        System.out.println("rapporto");
+         System.out.println("rapporto");
         CalculatorModel instance = new CalculatorModel();
-        instance.rapporto();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf = instance.getSf();
+        Complex c1, c2;
+        c1 = new Complex(11, 3);
+        c2 = new Complex(2.8, -7.2);
+        sf.push(c1);
+        sf.push(c2);
+        try {
+            // Metodo testato con numeri complessi validi
+            instance.rapporto();
+        } catch (NotEnoughElementException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(DivisionByZeroException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        // Verifica se il rapporto è corretto
+        assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.div(c2, c1).toString());
     }
+    @Test
+    public void testRapportoUnderflowException() {
+        System.out.println("RapportoException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1;
+        c1 = new Complex(14, 2);
 
+        sf.push(c1);
+
+        try {
+            // Metodo testato con meno di due numeri complessi nello stack
+            instance.rapporto();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (NotEnoughElementException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+    }
+    @Test
+    public void testRapportoDivisionByZeroExceptionExcpetion() {
+         System.out.println("rapporto");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1, c2;
+        c1 = new Complex(11, 3);
+        c2 = new Complex(0,0);
+        sf.push(c1);
+        sf.push(c2);
+        try {
+            
+            instance.rapporto();
+            fail("Expected DivisionByZeroExceptionExcpetion");
+        } catch(DivisionByZeroException ex){
+            
+        }
+        
+    }
     /**
      * Test of radice method, of class CalculatorModel.
      */
@@ -322,11 +402,69 @@ public class CalculatorModelTest {
     public void testRadice() {
         System.out.println("radice");
         CalculatorModel instance = new CalculatorModel();
-        instance.radice();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf = instance.getSf();
+        Complex c1;
+        c1 = new Complex(11, 3);
+        
+        sf.push(c1);
+        assert(sf.getSize()<50);
+        try {
+            // Metodo testato con numeri complessi validi
+            instance.radice();
+        } catch (StackUnderflowException ex) {
+            fail("Unexpected exception: " + ex.getMessage());
+        } catch(StackFullException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        // Verifica se la radice è corretta
+         Complex c [] = new Complex[2];
+         c=Complex.sqrt(c1); 
+         //la radice ha due risultati verifico che entrambi siano corretti
+        assertEquals(sf.viewElement(sf.getSize() - 1).toString(), c[1].toString());  
+        assertEquals(sf.viewElement(sf.getSize() - 2).toString(), c[0].toString());
     }
-
+    
+    @Test
+    public void testRadiceStackUnderflowException() {
+        System.out.println("RadiceStackUnderflowException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        
+        assert(sf.getSize()==0);
+        
+        try {
+            // Metodo testato con 0 complessi nello stack
+            instance.radice();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (StackUnderflowException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
+    
+     @Test
+    public void testRadiceStackFullException() {
+        System.out.println("RadiceStackFullException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        for (int i = 0; i < 50; i++) {
+                instance.insertNumber(i * 1.3, i * -12.41);
+            }
+        assert(sf.getSize()==50);
+        
+        try {
+            // Metodo testato con 50 complessi nello stack(la radice ne inserisce 2)
+            instance.radice();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected StackFullException");
+        } catch (StackFullException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
     /**
      * Test of cambioSegno method, of class CalculatorModel.
      */
@@ -334,9 +472,37 @@ public class CalculatorModelTest {
     public void testCambioSegno() {
         System.out.println("cambioSegno");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1;
+        
+        c1 = new Complex(11, 3);
+        sf.push(c1);
+       try{
         instance.cambioSegno();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       }catch(StackUnderflowException ex){
+           fail("Unexpected exception: " + ex.getMessage());
+       }
+         assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.change(c1).toString());
+    }
+
+    @Test
+    public void testCambioSegnoException() {
+        System.out.println("CambioSegnoException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        
+        assert(sf.getSize()==0);
+        
+        try {
+            // Metodo testato con 0 complessi nello stack
+            instance.cambioSegno();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (StackUnderflowException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
     }
 
     /**
@@ -346,9 +512,18 @@ public class CalculatorModelTest {
     public void testClear() {
         System.out.println("clear");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        for (int i = 0; i < 50; i++) {
+                instance.insertNumber(i * 1.3, i * -12.41);
+            }
         instance.clear();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assert(sf.getSize()==0);
+        try{
+            sf.pop();
+            fail("Expected StackUnderflowException");
+        }catch(StackUnderflowException ex){
+            
+        }
     }
 
     /**
@@ -358,11 +533,40 @@ public class CalculatorModelTest {
     public void testSwap() {
         System.out.println("swap");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+         Complex c1,c2;
+         c1= new Complex(-2,4);
+         c2= new Complex(12, 8);
+         assert(sf.getSize()<48);
+         sf.push(c1);
+         sf.push(c2);
+         try{
         instance.swap();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         }catch(NotEnoughElementException ex){
+             fail("Unexpected exception: " + ex.getMessage());
+         }
+         assertEquals(sf.viewElement(sf.getSize()-1).toString(),c1.toString());
+       assertEquals(sf.viewElement(sf.getSize()-2).toString(),c2.toString());
     }
-
+    
+    @Test
+    public void testSwapException() {
+        System.out.println("swap");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+         Complex c1,c2;
+         c1= new Complex(-2,4);
+         assert(sf.getSize()==0);
+         sf.push(c1);
+         
+         try{
+        instance.swap();
+         fail("Expected NotEnoughElementException");
+         }catch(NotEnoughElementException ex){
+            
+         }
+         
+    }
     /**
      * Test of drop method, of class CalculatorModel.
      */
@@ -370,11 +574,36 @@ public class CalculatorModelTest {
     public void testDrop() {
         System.out.println("drop");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+         Complex c1,c2;
+         c1= new Complex(-2,4);
+         c2= new Complex(12, 8);
+         assert(sf.getSize()<48);
+         sf.push(c1);
+         sf.push(c2);
+         try{
         instance.drop();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         }catch(NotEnoughElementException ex){
+             fail("Unexpected exception: " + ex.getMessage());
+         }
+          assertEquals(sf.viewElement(sf.getSize()-1).toString(),c1.toString());
     }
 
+    @Test
+    public void testDropException() {
+        System.out.println("DropException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        
+        instance.clear();
+        assert(sf.getSize()==0);
+        try{
+            instance.drop();
+            fail("Expected StackUnderflowException");
+        }catch(StackUnderflowException ex){
+            
+        }
+    }
     /**
      * Test of dup method, of class CalculatorModel.
      */
