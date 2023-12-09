@@ -5,9 +5,12 @@
 package calculator.model;
 
 import calculator.exception.DivisionByZeroException;
+import calculator.exception.InvalidInputException;
+import calculator.exception.InvalidVariableException;
 import calculator.exception.NotEnoughElementException;
 import calculator.exception.StackFullException;
 import calculator.exception.StackUnderflowException;
+import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -611,47 +614,286 @@ public class CalculatorModelTest {
     public void testDup() {
         System.out.println("dup");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1=new Complex(3,4);
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        try{
         instance.dup();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        }catch(StackUnderflowException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(StackFullException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        assertEquals(sf.viewElement(sf.getSize()-1).toString(),sf.viewElement(sf.getSize()-2).toString());
     }
 
+    
+    
+    @Test
+    public void testDupStackUnderflowException() {
+        System.out.println("DupStackUnderflowException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        
+        assert(sf.getSize()==0);
+        
+        try {
+            // Metodo testato con 0 complessi nello stack
+            instance.dup();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected StackUnderflowException");
+        } catch (StackUnderflowException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
+    
+     @Test
+    public void testDupStackFullException() {
+        System.out.println("DupStackFullException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        for (int i = 0; i < 50; i++) {
+                instance.insertNumber(i * 1.3, i * -12.41);
+            }
+        assert(sf.getSize()==50);
+        
+        try {
+            // Metodo testato con 50 complessi nello stack
+            instance.dup();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected StackFullException");
+        } catch (StackFullException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
     /**
      * Test of over method, of class CalculatorModel.
      */
     @Test
     public void testOver() {
-        System.out.println("over");
+       System.out.println("over");
         CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        Complex c1=new Complex(3,4);
+        Complex c2=new Complex(1,10);
+        assert(sf.getSize()+2<sf.getMaxSize());
+        sf.push(c1);
+        sf.push(c2);
+        try{
         instance.over();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        }catch(NotEnoughElementException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(StackFullException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+        assertEquals(sf.viewElement(sf.getSize()-1).toString(),sf.viewElement(sf.getSize()-3).toString());
     }
-
+    
+     @Test
+    public void testOverNotEnoughElementException() {
+        System.out.println("OverNotEnoughElementException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        
+        assert(sf.getSize()<2);
+        
+        try {
+            // Metodo testato con 0 complessi nello stack
+            instance.over();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected NotEnoughElementException");
+        } catch (NotEnoughElementException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
+    
+     @Test
+    public void testOverStackFullException() {
+        System.out.println("OverStackFullException");
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+        for (int i = 0; i < 50; i++) {
+                instance.insertNumber(i * 1.3, i * -12.41);
+            }
+        assert(sf.getSize()==sf.getMaxSize());
+        
+        try {
+            // Metodo testato con 50 complessi nello stack
+            instance.dup();
+            // Fail se l'eccezione attesa non viene lanciata
+            fail("Expected StackFullException");
+        } catch (StackFullException ex) {
+            // Se l'eccezione attesa viene lanciata, il test è corretto
+        }
+        
+    
+    }
     /**
      * Test of sommaVariabile method, of class CalculatorModel.
      */
     @Test
     public void testSommaVariabile() {
         System.out.println("sommaVariabile");
-        char c = ' ';
+        char c = 'a';
+        
         CalculatorModel instance = new CalculatorModel();
-        instance.sommaVariabile(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        Complex c2=new Complex(1, 7);
+        assert(sf.getSize()+1<sf.getMaxSize());
+        sf.push(c1);
+        sf.push(c2);
+       
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        
+        try{
+            instance.sommaVariabile(c);
+        }catch(StackUnderflowException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(InvalidInputException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+            }
+      assertEquals(var.get(c).toString(),Complex.add(c1, c2).toString());
     }
-
+@Test
+    public void testSommaVariabileStackUnderflowException() {
+        System.out.println("SommaVariabileStackUnderflowException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        
+       
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        
+        
+        try{
+            instance.sommaVariabile(c);
+             fail("Expected StackUnderflowException");
+        }catch(StackUnderflowException ex){
+            
+        }
+      
+    }
+    
+    @Test
+    public void testSommaVariabileInvalidVariableException() {
+        System.out.println("testSommaVariabileInvalidVariableException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        Complex c2=new Complex(1, 7);
+        assert(sf.getSize()+1<sf.getMaxSize());
+        sf.push(c1);
+        sf.push(c2);
+        try{
+            instance.sommaVariabile(c);
+             fail("Expected InvalidVariableException");
+        }catch(InvalidVariableException ex){
+            
+        }
+      
+    }
     /**
      * Test of differenzaVariabile method, of class CalculatorModel.
      */
     @Test
     public void testDifferenzaVariabile() {
-        System.out.println("differenzaVariabile");
-        char c = ' ';
+        System.out.println("testDifferenzaVariabile");
+        char c = 'a';
+        
         CalculatorModel instance = new CalculatorModel();
-        instance.differenzaVariabile(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(15, -8);
+        Complex c2=new Complex(1, 7);
+        assert(sf.getSize()+1<sf.getMaxSize());
+        sf.push(c1);
+        sf.push(c2);
+       
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        
+        try{
+            instance.differenzaVariabile(c);
+        }catch(StackUnderflowException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(InvalidInputException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+            }
+      assertEquals(var.get(c).toString(),Complex.sub(c1, c2).toString());
+    }
+@Test
+    public void testDifferenzaVariabileStackUnderflowException() {
+        System.out.println("testDifferenzaVariabileStackUnderflowException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        
+       
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        
+        
+        try{
+            instance.differenzaVariabile(c);
+             fail("Expected StackUnderflowException");
+        }catch(StackUnderflowException ex){
+            
+        }
+      
+    }
+    
+    @Test
+    public void testDifferenzaVariabileInvalidVariableException() {
+        System.out.println("testDifferenzaVariabileInvalidVariableException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        Complex c2=new Complex(1, 7);
+        assert(sf.getSize()+1<sf.getMaxSize());
+        sf.push(c1);
+        sf.push(c2);
+        try{
+            instance.differenzaVariabile(c);
+             fail("Expected InvalidVariableException");
+        }catch(InvalidVariableException ex){
+            
+        }
+      
     }
 
     /**
@@ -659,12 +901,78 @@ public class CalculatorModelTest {
      */
     @Test
     public void testDuplicazioneVariabile() {
-        System.out.println("duplicazioneVariabile");
-        char c = ' ';
+        System.out.println("testDuplicazioneVariabile");
+        char c = 'a';
+        
         CalculatorModel instance = new CalculatorModel();
-        instance.duplicazioneVariabile(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(15, -8);
+        
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        
+       
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        
+        try{
+            instance.duplicazioneVariabile(c);
+        }catch(StackFullException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }catch(InvalidInputException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+            }
+      assertEquals(var.get(c).toString(),sf.viewElement(sf.getSize()-1).toString());
+    }
+@Test
+    public void testDuplicazioneVariabileStackFullException() {
+        System.out.println("testDuplicazioneVariabileStackFullException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+        Complex c1=new Complex(-3, 8);
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        assert(sf.getSize()>0);
+        instance.assegnaVariabile(c);
+        assert(sf.getSize()==0);
+        for (int i = 0; i < 50; i++) {
+                instance.insertNumber(i * -2, i * 6.41);
+            }
+        
+        try{
+            instance.duplicazioneVariabile(c);
+             fail("Expected StackFullException");
+        }catch(StackFullException ex){
+            
+        }
+      
+    }
+    
+    @Test
+    public void testDuplicazioneVariabileInvalidVariableException() {
+        System.out.println("testDifferenzaVariabileInvalidVariableException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+         Map var=instance.getMap();
+         
+       
+        assert(sf.getSize()<sf.getMaxSize());
+        
+        try{
+            instance.duplicazioneVariabile(c);
+             fail("Expected InvalidVariableException");
+        }catch(InvalidVariableException ex){
+            
+        }
+      
     }
 
     /**
@@ -673,11 +981,43 @@ public class CalculatorModelTest {
     @Test
     public void testAssegnaVaribile() {
         System.out.println("assegnaVaribile");
-        char c = ' ';
+        char c = 'a';
+        
         CalculatorModel instance = new CalculatorModel();
-        instance.assegnaVariabile(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        StackFinito sf=instance.getSf();
+        
+        Complex c1=new Complex(-3, 8);
+        assert(sf.getSize()<sf.getMaxSize());
+        sf.push(c1);
+        Map var=instance.getMap();
+        try{
+            instance.assegnaVariabile(c);
+        }catch(StackUnderflowException ex){
+            fail("Unexpected exception: " + ex.getMessage());
+        }
+      assertEquals(var.get(c).toString(),c1.toString());
+        
+    }
+    @Test
+    public void testAssegnaVaribileException() {
+        System.out.println("assegnaVaribileException");
+        char c = 'a';
+        
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf=instance.getSf();
+        
+        
+        assert(sf.getSize()==0);
+        
+        Map var=instance.getMap();
+        try{
+            instance.assegnaVariabile(c);
+             fail("Expected exception: ");
+        }catch(StackUnderflowException ex){
+           
+        }
+      
+        
     }
     //prova
     

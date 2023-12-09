@@ -30,7 +30,9 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
     public StackFinito getSf(){
         return sf;
     }
-
+    public Map getMap(){
+        return variabili;
+    }
     /**
      * Restituisce una rappresentazione in formato stringa delle variabili e dei loro valori complessi.
      * La rappresentazione è nel formato "variabile1=valore1, variabile2=valore2, ...".
