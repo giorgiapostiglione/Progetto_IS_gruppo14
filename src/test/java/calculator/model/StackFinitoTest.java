@@ -5,6 +5,7 @@
 package calculator.model;
 
 import calculator.exception.StackFullException;
+import calculator.exception.StackUnderflowException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -90,8 +91,7 @@ public class StackFinitoTest {
         instance.push(new Complex(-478.884, 891.65));
         fail("Eccezione non lanciata come previsto");}
         catch(StackFullException ex){
-                
-                }
+        }
     }
 
     /**
@@ -119,9 +119,12 @@ public class StackFinitoTest {
     public void testPop_emptyStack() {
         System.out.println("pop");
         StackFinito instance = new StackFinito();
-        Complex expResult = null;
-        Complex result = instance.pop();
-        assertEquals(expResult, result);
+        try{
+            Complex result = instance.pop();
+            fail("L'eccezione è stata chiamata come previsto");
+        }
+        catch(StackUnderflowException ex){
+        }
     }
 
     /**
@@ -282,14 +285,57 @@ public class StackFinitoTest {
      * Verifica che stampaDodiceElementi restituisca una stringa vuota per uno stack vuoto.
      * Classe d'equivalenza testata: Stack vuoto.
      */
+    
+    
     @Test
-    public void testStampaDodiceElementi() {
+    public void testStampaDodiceElementi_stackEmpty() {
         System.out.println("stampaDodiceElementi");
         StackFinito instance = new StackFinito();
-        String expResult = "";
         String result = instance.stampaDodiceElementi();
+        String expResult = "";
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+    }
+    
+    /**
+     * Test del metodo stampaDodiceElementi della classe StackFinito.
+     * Verifica che stampaDodiceElementi restituisca una stringa con gli unici dodici elementi presenti nello stack.
+     * Classe d'equivalenza testata: StackFinito.
+     */
+    
+    @Test
+    public void testStampaDodiceElementi_twelveElements() {
+        System.out.println("stampaDodiceElementi");
+        StackFinito instance = new StackFinito();
+        for(int i=0; i<12; i++){
+            instance.push(new Complex(Math.random()*i, -Math.random()*i));
+        }
+        String result = instance.stampaDodiceElementi();
+        String expResult = "";
+        for(int i=0; i<12; i++){
+            expResult+=instance.pop();
+        }
+        assertEquals(expResult, result);    
+    }
+    
+    /**
+     * Test del metodo stampaDodiceElementi della classe StackFinito.
+     * Verifica che stampaDodiceElementi restituisca una stringa con i primi dodici elementi presenti in cima allo stack.
+     * Classe d'equivalenza testata: StackFinito.
+     */
+    
+    @Test
+    public void testStampaDodiceElementi_moreThanTwelveElements() {
+        System.out.println("stampaDodiceElementi");
+        StackFinito instance = new StackFinito();
+        for(int i=0; i<16; i++){
+            instance.push(new Complex(-Math.random()*i, -Math.random()*i));
+        }
+        String result = instance.stampaDodiceElementi();
+        String expResult = "";
+        for(int i=0; i<12; i++){
+            expResult+=instance.pop();
+        }
+        assertEquals(expResult, result);
     }
 }
