@@ -140,7 +140,6 @@ public class CalculatorController {
      * @throws RuntimeException Se l'input non è valido o se si verifica un'eccezione durante l'elaborazione.
      */    
     private void verifyInput(String input) throws RuntimeException{        
-            
             // Regex per verificare se l'input corrisponde a un numero complesso
             // ([+-]?\\d*\\.?\\d+) questa parte corrisponde alla parte reale di un numero complesso.
             // ([+-]?\\d*\\.?\\d*j) questa parte corrisponde alla parte immaginaria di un numero complesso.
