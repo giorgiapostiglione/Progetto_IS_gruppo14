@@ -30,6 +30,8 @@ public class CalculatorModel implements OperazioniAritmetiche, OperazioniConVari
     public StackFinito getSf(){
         return sf;
     }
+    
+    //Metodo utilizzato SOLO per effettuare i test
     public Map getMap(){
         return variabili;
     }

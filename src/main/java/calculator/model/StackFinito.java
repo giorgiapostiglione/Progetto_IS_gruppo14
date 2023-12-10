@@ -59,8 +59,7 @@ public class StackFinito {
      * @param index Indice dell'elemento da visualizzare.
      * @return Elemento di tipo Complex alla posizione specificata nello stack.
      */
-    public Complex viewElement(int index)  throws  ArrayIndexOutOfBoundsException
-    { 
+    public Complex viewElement(int index)  throws  ArrayIndexOutOfBoundsException{ 
         return memoria.get(index);
     }
       
