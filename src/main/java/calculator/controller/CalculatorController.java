@@ -81,6 +81,7 @@ public class CalculatorController {
      * Aggiorna il campo di visualizzazione, disabilita alcuni pulsanti in caso di errore e aggiorna la memoria.
      * @param e L'evento di azione generato dal pulsante premuto.
      */
+    
     private void buttonPressedAction(ActionEvent e){
         Button b = (Button) e.getSource();
         try{
