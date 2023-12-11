@@ -36,6 +36,12 @@ public class CalculatorController {
         initButtons();
         initBindings();
     }
+// SOLO PER I TEST DEL CONTROLLER
+    public CalculatorController(CalculatorModel model) {
+        this.model = model;
+        this.view=null;
+    }
+    
 
     /**
      * Inizializza le azioni degli eventi per i pulsanti nella tastiera numerica e nella tastiera delle lettere.
@@ -229,7 +235,7 @@ public class CalculatorController {
       */  
     public boolean verifyVariablesOperation(String input) throws RuntimeException{
                 if (input.matches("[-+<>]x[a-z]")){
-                    view.display.setText("");
+                   
                     // Se l'input corrisponde a una manipolazione delle variabili, la esegue
                             String primaParte = input.substring(0, 2);
                             char secondaParte = input.charAt(2);
