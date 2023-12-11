@@ -88,6 +88,8 @@ public class CalculatorController {
             String value = b.getText();
             switch(value){
                 case "C":
+                     // Pulisce il campo di visualizzazione e inizializza le associazioni
+                     view.display.setText("");
                      initBindings();
                      break;
                 case "MC":
@@ -108,13 +110,15 @@ public class CalculatorController {
                 case "EXE":
                     String inputDisplay = view.display.getText();
                     view.display.setText("");
+                    
                     // Verifica e processa l'input nel campo di visualizzazione
                     if(!verifyNumericInput(inputDisplay))
                         if(!verifyArithmeticOperation(inputDisplay))
                             if(!verifyVariablesOperation(inputDisplay))
-                                throw new InvalidInputException(); 
-                                         // Pulisce il campo di visualizzazione e inizializza le associazioni
-
+                                throw new InvalidInputException();
+                            else{
+                                view.variableMemory.setText(model.toStringHM());
+                            }
                     break;
             }
         }catch (RuntimeException ex){
@@ -242,8 +246,7 @@ public class CalculatorController {
                                     model.differenzaVariabile(secondaParte);
                                     break;                   
                             }
-                            // Se l'input corrisponde a una manipolazione delle variabili, la esegue
-                            view.variableMemory.setText(model.toStringHM());
+
                             return true;
                 }
               return false;
