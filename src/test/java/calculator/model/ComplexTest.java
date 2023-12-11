@@ -956,7 +956,7 @@ public class ComplexTest {
 
     /**
      * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numero complesso nullo.
+     * Classe d'equivalenza: Numero complesso con parte reale e immaginaria positiva.
      */
     @Test
     public void testChangePositiveComplex() {
