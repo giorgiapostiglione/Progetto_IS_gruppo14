@@ -557,7 +557,7 @@ public class CalculatorModelTest {
         System.out.println("swap");
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf = instance.getSf();
-         Complex c1,c2;
+         Complex c1;
          c1= new Complex(-2,4);
          assert(sf.getSize()==0);
          sf.push(c1);
@@ -772,7 +772,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
         Complex c1=new Complex(-3, 8);
         
@@ -800,7 +800,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
         Complex c1=new Complex(-3, 8);
         Complex c2=new Complex(1, 7);
@@ -852,7 +852,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
         Complex c1=new Complex(-3, 8);
         
@@ -880,7 +880,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
         Complex c1=new Complex(-3, 8);
         Complex c2=new Complex(1, 7);
@@ -933,7 +933,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
         Complex c1=new Complex(-3, 8);
         assert(sf.getSize()<sf.getMaxSize());
@@ -961,7 +961,7 @@ public class CalculatorModelTest {
         
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
+         
          
        
         assert(sf.getSize()<sf.getMaxSize());
@@ -1009,7 +1009,7 @@ public class CalculatorModelTest {
         
         assert(sf.getSize()==0);
         
-        Map var=instance.getMap();
+        
         try{
             instance.assegnaVariabile(c);
              fail("Expected exception: ");
