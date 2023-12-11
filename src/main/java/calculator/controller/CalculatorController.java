@@ -110,7 +110,6 @@ public class CalculatorController {
                 case "EXE":
                     String inputDisplay = view.display.getText();
                     view.display.setText("");
-                    
                     // Verifica e processa l'input nel campo di visualizzazione
                     if(!verifyNumericInput(inputDisplay))
                         if(!verifyArithmeticOperation(inputDisplay))
@@ -218,7 +217,9 @@ public class CalculatorController {
                         }
                         return true;
                 }
-             return false;}
+             return false;
+    }
+    
      /**
       * Verifica e processa l'input inserito nella calcolatrice.
       * Se l'input corrisponde a una manipolazione delle variabili, esegue l'operazione corrispondente.
