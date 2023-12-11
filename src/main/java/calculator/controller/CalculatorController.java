@@ -36,7 +36,7 @@ public class CalculatorController {
         initButtons();
         initBindings();
     }
-
+// SOLO PER I TEST DEL CONTROLLER
     public CalculatorController(CalculatorModel model) {
         this.model = model;
         this.view=null;
