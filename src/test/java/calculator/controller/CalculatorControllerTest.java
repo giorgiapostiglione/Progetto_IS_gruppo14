@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Carlo Marna
  */
 public class CalculatorControllerTest {
-      
+    
     public CalculatorControllerTest() {
          
     }
@@ -33,6 +33,7 @@ public class CalculatorControllerTest {
     
     @BeforeEach
     public void setUp() {
+         
     }
     
     @AfterEach
@@ -50,14 +51,74 @@ public class CalculatorControllerTest {
      */
     @Test
     public void testVerifyNumericInput() {
+        CalculatorModel model= new CalculatorModel();
+        CalculatorView view= new CalculatorView();
+        CalculatorController controller= new CalculatorController(model,view);
         System.out.println("verifyNumericInput");
         String input = "3+2j";
-        CalculatorModel modelInstance= new CalculatorModel();
-        CalculatorController instance = new CalculatorController(modelInstance, null);
         boolean expResult = true;
-        boolean result = instance.verifyNumericInput(input);
+        boolean result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
-       
+
+        input = "1.23";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "-5i";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "0.5";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "+3.14";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "123  i";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = " 0.01";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "2e3";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "5e-2";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "-1E4";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "3 - 4i";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "5.6 + 7i";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
+
+        input = "9i";
+        expResult = true;
+        result = controller.verifyNumericInput(input);
+        assertEquals(expResult, result);
     }
 
     /**

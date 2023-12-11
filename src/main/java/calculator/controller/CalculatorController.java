@@ -229,7 +229,7 @@ public class CalculatorController {
       */  
     public boolean verifyVariablesOperation(String input) throws RuntimeException{
                 if (input.matches("[-+<>]x[a-z]")){
-                    view.display.setText("");
+                   
                     // Se l'input corrisponde a una manipolazione delle variabili, la esegue
                             String primaParte = input.substring(0, 2);
                             char secondaParte = input.charAt(2);
