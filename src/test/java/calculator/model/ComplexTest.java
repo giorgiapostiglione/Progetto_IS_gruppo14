@@ -257,8 +257,8 @@ public class ComplexTest {
     @Test
     public void testGetIm_RealZero() {
         System.out.println("Testing testGetIm_RealZero");
-        Complex instance = new Complex(5.0, 0.0);
-        double expResult = 0.0;
+        Complex instance = new Complex(0.0, -10.0);
+        double expResult = -10.0;
         double result = instance.getIm();
         assertEquals(expResult, result, 0.0);
     }
@@ -270,8 +270,8 @@ public class ComplexTest {
     @Test
     public void testGetIm_ImaginaryZero() {
         System.out.println("Testing testGetIm_ImaginaryZero");
-        Complex instance = new Complex(0.0, 7.0);
-        double expResult = 7.0;
+        Complex instance = new Complex(2.0, 0.0);
+        double expResult = 0.0;
         double result = instance.getIm();
         assertEquals(expResult, result, 0.0);
     }

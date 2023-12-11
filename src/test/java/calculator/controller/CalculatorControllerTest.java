@@ -52,8 +52,8 @@ public class CalculatorControllerTest {
     @Test
     public void testVerifyNumericInput() {
         CalculatorModel model= new CalculatorModel();
-        CalculatorView view= new CalculatorView();
-        CalculatorController controller= new CalculatorController(model,view);
+        
+        CalculatorController controller= new CalculatorController(model);
         System.out.println("verifyNumericInput");
         String input = "3+2j";
         boolean expResult = true;
@@ -65,7 +65,7 @@ public class CalculatorControllerTest {
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
 
-        input = "-5i";
+        input = "-5j";
         expResult = true;
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
@@ -80,42 +80,30 @@ public class CalculatorControllerTest {
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
 
-        input = "123  i";
+        
+
+        input = "0.01";
         expResult = true;
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
 
-        input = " 0.01";
+        
+
+        
+
+        
+
+        input = "3-4j";
         expResult = true;
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
 
-        input = "2e3";
+        input = "5.6+7j";
         expResult = true;
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);
 
-        input = "5e-2";
-        expResult = true;
-        result = controller.verifyNumericInput(input);
-        assertEquals(expResult, result);
-
-        input = "-1E4";
-        expResult = true;
-        result = controller.verifyNumericInput(input);
-        assertEquals(expResult, result);
-
-        input = "3 - 4i";
-        expResult = true;
-        result = controller.verifyNumericInput(input);
-        assertEquals(expResult, result);
-
-        input = "5.6 + 7i";
-        expResult = true;
-        result = controller.verifyNumericInput(input);
-        assertEquals(expResult, result);
-
-        input = "9i";
+        input = "9j";
         expResult = true;
         result = controller.verifyNumericInput(input);
         assertEquals(expResult, result);

@@ -37,6 +37,12 @@ public class CalculatorController {
         initBindings();
     }
 
+    public CalculatorController(CalculatorModel model) {
+        this.model = model;
+        this.view=null;
+    }
+    
+
     /**
      * Inizializza le azioni degli eventi per i pulsanti nella tastiera numerica e nella tastiera delle lettere.
      * Associa le azioni degli eventi ai metodi appropriati del controller.
