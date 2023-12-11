@@ -88,8 +88,6 @@ public class CalculatorController {
             String value = b.getText();
             switch(value){
                 case "C":
-                     // Pulisce il campo di visualizzazione e inizializza le associazioni
-                     view.display.setText("");
                      initBindings();
                      break;
                 case "MC":
@@ -108,11 +106,15 @@ public class CalculatorController {
                     model.dup();
                     break;
                 case "EXE":
+                    String inputDisplay = view.display.getText();
+                    view.display.setText("");
                     // Verifica e processa l'input nel campo di visualizzazione
-                    if(!verifyNumericInput(view.display.getText()))
-                        if(!verifyArithmeticOperation(view.display.getText()))
-                            if(!verifyVariablesOperation(view.display.getText()))
+                    if(!verifyNumericInput(inputDisplay))
+                        if(!verifyArithmeticOperation(inputDisplay))
+                            if(!verifyVariablesOperation(inputDisplay))
                                 throw new InvalidInputException(); 
+                                         // Pulisce il campo di visualizzazione e inizializza le associazioni
+
                     break;
             }
         }catch (RuntimeException ex){
@@ -153,7 +155,6 @@ public class CalculatorController {
             
             // Se l'input corrisponde a un numero complesso, lo inserisce nello stack
             if (matcher.matches()){
-                view.display.setText("");
                 String realPart = matcher.group(1);
                 String imagPart = matcher.group(2);
                 
@@ -190,7 +191,6 @@ public class CalculatorController {
      */      
     public boolean verifyArithmeticOperation(String input) throws RuntimeException{ 
              if (input.matches("[-+*÷√]|\\+/-")){
-                view.display.setText("");
                 // Se l'input corrisponde a un'operazione matematica, la esegue
                         switch(input){
                             case "*":
