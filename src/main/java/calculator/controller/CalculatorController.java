@@ -108,7 +108,10 @@ public class CalculatorController {
                     break;
                 case "EXE":
                     // Verifica e processa l'input nel campo di visualizzazione
-                    verifyInput(view.display.getText());
+                    if(!verifyNumericInput(view.display.getText()))
+                        if(!verifyArithmeticOperation(view.display.getText()))
+                            if(!verifyVariablesOperation(view.display.getText()))
+                                throw new InvalidInputException(); 
                     break;
             }
         }catch (RuntimeException ex){
@@ -132,20 +135,16 @@ public class CalculatorController {
     /**
      * Verifica e processa l'input inserito nella calcolatrice.
      * Se l'input corrisponde a un numero complesso, lo inserisce nello stack della calcolatrice.
-     * Se l'input corrisponde a un'operazione matematica o a una manipolazione delle variabili,
-     * esegue l'operazione corrispondente.
-     * Aggiorna la visualizzazione dello stack e delle variabili.
      *
      * @param input L'input inserito nella calcolatrice.
-     * @throws RuntimeException Se l'input non è valido o se si verifica un'eccezione durante l'elaborazione.
+     * @throws RuntimeException Se si verifica un'eccezione durante l'elaborazione.
      */    
-    private void verifyInput(String input) throws RuntimeException{        
+    public boolean verifyNumericInput(String input) throws RuntimeException{        
             // Regex per verificare se l'input corrisponde a un numero complesso
             // ([+-]?\\d*\\.?\\d+) questa parte corrisponde alla parte reale di un numero complesso.
             // ([+-]?\\d*\\.?\\d*j) questa parte corrisponde alla parte immaginaria di un numero complesso.
             String regex = "([+-]?\\d*\\.?\\d+)?([+-]?\\d*\\.?\\d*j)?";
-            
-            view.display.setText("");
+           
             Pattern pattern = Pattern.compile(regex);
             
             // Cerca la corrispondenza tra l'input e la regex
@@ -153,6 +152,7 @@ public class CalculatorController {
             
             // Se l'input corrisponde a un numero complesso, lo inserisce nello stack
             if (matcher.matches()){
+                view.display.setText("");
                 String realPart = matcher.group(1);
                 String imagPart = matcher.group(2);
                 
@@ -175,8 +175,21 @@ public class CalculatorController {
                 
                 // Inserisce il numero complesso nello stack della calcolatrice
                 model.insertNumber(imag, real);   
+                return true;
             }
-            else if (input.matches("[-+*÷√]|\\+/-")){
+                return false;
+            }
+    
+    /**
+     * Verifica e processa l'input inserito nella calcolatrice.
+     * Se l'input corrisponde a un'operazione matematica esegue l'operazione corrispondente.
+     *
+     * @param input L'input inserito nella calcolatrice.
+     * @throws RuntimeException Se si verifica un'eccezione durante l'elaborazione.
+     */      
+    public boolean verifyArithmeticOperation(String input) throws RuntimeException{ 
+             if (input.matches("[-+*÷√]|\\+/-")){
+                view.display.setText("");
                 // Se l'input corrisponde a un'operazione matematica, la esegue
                         switch(input){
                             case "*":
@@ -198,8 +211,20 @@ public class CalculatorController {
                                 model.cambioSegno();
                                 break;
                         }
-                }else if (input.matches("[-+<>]x[a-z]")){
-                     // Se l'input corrisponde a una manipolazione delle variabili, la esegue
+                        return true;
+                }
+             return false;}
+     /**
+      * Verifica e processa l'input inserito nella calcolatrice.
+      * Se l'input corrisponde a una manipolazione delle variabili, esegue l'operazione corrispondente.
+      *
+      * @param input L'input inserito nella calcolatrice.
+      * @throws RuntimeException Se si verifica un'eccezione durante l'elaborazione.
+      */  
+    public boolean verifyVariablesOperation(String input) throws RuntimeException{
+                if (input.matches("[-+<>]x[a-z]")){
+                    view.display.setText("");
+                    // Se l'input corrisponde a una manipolazione delle variabili, la esegue
                             String primaParte = input.substring(0, 2);
                             char secondaParte = input.charAt(2);
                             switch (primaParte){
@@ -218,12 +243,9 @@ public class CalculatorController {
                             }
                             // Se l'input corrisponde a una manipolazione delle variabili, la esegue
                             view.variableMemory.setText(model.toStringHM());
-                    }else{
-                        // Se l'input non corrisponde a nessuno dei casi precedenti, solleva un'eccezione
-                        throw new InvalidInputException();
-                    }
-            // Aggiorna la visualizzazione dello stack
-            view.memory.setText(model.getSf().stampaDodiceElementi());  
+                            return true;
+                }
+              return false;
         }
      
     /**
