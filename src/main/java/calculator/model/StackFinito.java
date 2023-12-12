@@ -48,6 +48,7 @@ public class StackFinito {
    
     public int getSize(){
        return memoria.size();
+       
     }
 
     public int getMaxSize() {

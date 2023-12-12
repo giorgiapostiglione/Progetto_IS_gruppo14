@@ -270,19 +270,30 @@ public class CalculatorControllerTest {
         Boolean expResult = true;
         Boolean result;
         String input = "";
-
+        int i=0;
+        /*
+        Verifico l'operazione di assegnazione di tutte le variabili e 
+        assegno un valore diverso ad ognuna
+        */
         for (char c = 'a'; c <= 'z'; c++) {
             input = ">x" + c;
-            model.insertNumber(1, 4);
+            model.insertNumber(1+i, 4-i);
+            
             result = controller.verifyVariablesOperation(input);
             assertEquals(expResult, result);
+            i++;
         }
         Map map=model.getMap();
-        Complex n= new Complex(4,1);
+        
         /*verifico che tutte le variabili siano state instanziate a valore
         corretto nella map
         */
+        i=0;
          for (char c = 'a'; c <= 'z'; c++) {
+             
+             Complex n= new Complex(4-i,1+i);
+             i++;
+             
            assertEquals(map.get(c).toString(),n.toString());
         }
          
@@ -292,6 +303,8 @@ public class CalculatorControllerTest {
      * Test del metodo verifyVariablesOperation della classe CalculatorController per la duplicazione di variabili.
      * Classe d'equivalenza: Inserimento di input nel formato "<x" seguito da una lettera da 'a' a 'z'.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente la duplicazione di variabili.
+     * 
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyVariablesOperationDuplicaVariabile() {
@@ -301,13 +314,32 @@ public class CalculatorControllerTest {
         Boolean expResult = true;
         Boolean result;
         String input = "";
-
+        int i=0;
+        /*
+        Verifico l'operazione di duplicazione di tutte le variabili e 
+        assegno un valore diverso ad ognuna
+        */
         for (char c = 'a'; c <= 'z'; c++) {
             input = "<x" + c;
-            model.insertNumber(1, 4);
+            model.insertNumber(1-i, 4+i);
+            i++;
             model.assegnaVariabile(c);
             result = controller.verifyVariablesOperation(input);
             assertEquals(expResult, result);
+        }
+        
+        i--;
+        int j=1;
+        /*
+        Verifico che tutte le variabili duplicate siano state inserite nello stack, avrò
+        quindi in cima il valore di z essendo l'ultima duplicata e in fondo il valore di a
+        
+        */
+        for (char c = 'a'; c <= 'z'; c++) {
+             Complex n= new Complex(4+i,1-i);
+           assertEquals(n.toString(),model.getSf().viewElement(model.getSf().getSize()-j).toString());
+           i--;
+           j++;
         }
     }
 
@@ -315,6 +347,8 @@ public class CalculatorControllerTest {
      * Test del metodo verifyVariablesOperation della classe CalculatorController per l'operazione di somma con variabili.
      * Classe d'equivalenza: Inserimento di input nel formato "+x" seguito da una lettera da 'a' a 'z'.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di somma con variabili.
+     * 
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyVariablesOperationSommaVariabile() {
@@ -333,12 +367,24 @@ public class CalculatorControllerTest {
             result = controller.verifyVariablesOperation(input);
             assertEquals(expResult, result);
         }
+        Map map= model.getMap();
+        //somma dei due inserimenti precedenti
+        Complex c1= new Complex(5,3);
+        /*
+        Verifico che ogni variabile sia stata correttamente sommata
+        */
+        
+        for (char c = 'a'; c <= 'z'; c++) {
+            assertEquals(map.get(c).toString(),c1.toString());
+        }
     }
 
     /**
      * Test del metodo verifyVariablesOperation della classe CalculatorController per l'operazione di differenza con variabili.
      * Classe d'equivalenza: Inserimento di input nel formato "-x" seguito da una lettera da 'a' a 'z'.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di differenza con variabili.
+     * 
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyVariablesOperationDifferenzaVariabile() {
@@ -356,6 +402,16 @@ public class CalculatorControllerTest {
             model.assegnaVariabile(c);
             result = controller.verifyVariablesOperation(input);
             assertEquals(expResult, result);
+        }
+        Map map= model.getMap();
+        //differenza dei due inserimenti precedenti
+        Complex c1= new Complex(-3,1);
+        /*
+        Verifico che ogni variabile sia stata correttamente sottratta
+        */
+        
+        for (char c = 'a'; c <= 'z'; c++) {
+            assertEquals(map.get(c).toString(),c1.toString());
         }
     }
 
