@@ -136,7 +136,7 @@ public class CalculatorControllerTest {
         
     
 
-        /**
+    /**
      * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di somma.
      * Classe d'equivalenza: Inserimento del carattere "+" per l'operazione di somma.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di somma.
