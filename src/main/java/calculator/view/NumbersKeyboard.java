@@ -14,43 +14,44 @@ import javafx.scene.layout.VBox;
  *
  * @author Carlo Marna
  */
-public class NumbersKeyboard extends VBox{
+public class NumbersKeyboard extends VBox {
+
     public Button[] numop;
 
     public final int ELEMENTS = 28;
     public final int COLUMNS = 5;
 
     /**
-     * Costruttore per la tastiera numerica.
-     * Inizializza e organizza i bottoni della tastiera numerica.
-     */    
-    public NumbersKeyboard() { 
+     * Costruttore per la tastiera numerica. Inizializza e organizza i bottoni
+     * della tastiera numerica.
+     */
+    public NumbersKeyboard() {
         super();
         // Impostazione allineamento e spaziatura per la tastiera delle lettere
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
-        
+
         // Inizializzazione dei bottoni della tastiera delle lettere
         intitButtons();
-        
+
         // Posizionamento dei bottoni nella tastier
-        placeButtons();  
+        placeButtons();
     }
- 
+
     /**
-     * Inizializza i bottoni delle operazioni numeriche.
-     * Crea e configura i bottoni con testi e larghezze prefissate.
-     * Aggiunge tooltip per fornire informazioni aggiuntive su alcuni bottoni.
+     * Inizializza i bottoni delle operazioni numeriche. Crea e configura i
+     * bottoni con testi e larghezze prefissate. Aggiunge tooltip per fornire
+     * informazioni aggiuntive su alcuni bottoni.
      */
-    private void intitButtons(){
+    private void intitButtons() {
         // Inizializza i bottoni delle operazioni numeriche
         numop = new Button[ELEMENTS];
         // Ciclo per creare e configurare i bottoni
-        for(int i = 0; i < ELEMENTS; i++){
+        for (int i = 0; i < ELEMENTS; i++) {
             numop[i] = new Button();
             numop[i].setPrefWidth(50);
         }
-        
+
         // Imposta i testi per i bottoni delle operazioni numeriche
         numop[0].setText("MO");
         numop[1].setText("MS");
@@ -80,44 +81,45 @@ public class NumbersKeyboard extends VBox{
         numop[25].setText(".");
         numop[26].setText("0");
         numop[27].setText("EXE");
-        
+
         // Aggiunge tooltip per fornire informazioni aggiuntive su alcuni bottoni
         Tooltip.install(numop[0], new Tooltip("Over"));
         Tooltip.install(numop[1], new Tooltip("Swap"));
         Tooltip.install(numop[2], new Tooltip("Dup"));
-        Tooltip.install(numop[3],  new Tooltip("Clear"));
+        Tooltip.install(numop[3], new Tooltip("Clear"));
         Tooltip.install(numop[4], new Tooltip("Clear Display"));
         Tooltip.install(numop[5], new Tooltip("Assegna Variabile"));
         Tooltip.install(numop[6], new Tooltip("Drop"));
         Tooltip.install(numop[10], new Tooltip("Duplica Variabile"));
         Tooltip.install(numop[15], new Tooltip("Somma com variabile"));
-        Tooltip.install(numop[20],  new Tooltip("Differenza con variabil"));
+        Tooltip.install(numop[20], new Tooltip("Differenza con variabil"));
     }
-    
+
     /**
-     * Posiziona i bottoni delle operazioni numeriche all'interno di un GridPane.
-     * Alcuni bottoni vengono posizionati in modo personalizzato, come '0' e 'EXE'.
-     */    
-    private void placeButtons(){
+     * Posiziona i bottoni delle operazioni numeriche all'interno di un
+     * GridPane. Alcuni bottoni vengono posizionati in modo personalizzato, come
+     * '0' e 'EXE'.
+     */
+    private void placeButtons() {
         // Crea un GridPane per organizzare i bottoni delle operazioni numeriche
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
-        
+
         // Ciclo per posizionare i bottoni nella griglia
-        for(int i = 0; i < ELEMENTS; i++){
+        for (int i = 0; i < ELEMENTS; i++) {
             if (i == 26) {
-                 //Se stiamo posizomnando il bottone '0' personalizza larghezza e imposta che prende tre colonne
+                //Se stiamo posizomnando il bottone '0' personalizza larghezza e imposta che prende tre colonne
                 numop[i].setPrefWidth(150);
-                pane.add(numop[i], i % COLUMNS, i / COLUMNS,3,1);          
+                pane.add(numop[i], i % COLUMNS, i / COLUMNS, 3, 1);
             } else if (i == 27) {
-                 //Se stiamo posizomnando il bottone 'EXE' personalizza la poszione
+                //Se stiamo posizomnando il bottone 'EXE' personalizza la poszione
                 pane.add(numop[i], 4, i / COLUMNS);
-            }else {
-                 // Altrimenti, posiziona il pulsante normalmente nella griglia
+            } else {
+                // Altrimenti, posiziona il pulsante normalmente nella griglia
                 pane.add(numop[i], i % COLUMNS, i / COLUMNS);
             }
         }
         // Aggiungi il GridPane contenente i bottoni alla vista corrente
-        this.getChildren().add(pane); 
+        this.getChildren().add(pane);
     }
 }

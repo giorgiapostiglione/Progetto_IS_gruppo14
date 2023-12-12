@@ -16,29 +16,29 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Carlo Marna
  */
 public class ComplexTest {
-    
+
     public ComplexTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale positiva.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale positiva.
      */
     @Test
     public void testGetRe_PositiveReal() {
@@ -50,8 +50,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale negativa.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale negativa.
      */
     @Test
     public void testGetRe_NegativeReal() {
@@ -63,8 +63,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria zero.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria zero.
      */
     @Test
     public void testGetRe_ImaginaryZero() {
@@ -76,8 +76,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale zero.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale zero.
      */
     @Test
     public void testGetRe_RealZero() {
@@ -89,8 +89,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria zero.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria zero.
      */
     @Test
     public void testGetRe_ComplexZero() {
@@ -102,8 +102,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale massima.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale massima.
      */
     @Test
     public void testGetRe_MaxReal() {
@@ -115,8 +115,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale minima.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale minima.
      */
     @Test
     public void testGetRe_MinReal() {
@@ -128,8 +128,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale infinita.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale infinita.
      */
     @Test
     public void testGetRe_InfiniteReal() {
@@ -141,8 +141,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria massima.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria massima.
      */
     @Test
     public void testGetRe_MaxImaginary() {
@@ -154,8 +154,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale frazionaria.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale frazionaria.
      */
     @Test
     public void testGetRe_FractionalReal() {
@@ -167,8 +167,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale frazionaria negativa.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale frazionaria negativa.
      */
     @Test
     public void testGetRe_NegativeFractionalReal() {
@@ -180,8 +180,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con errore di arrotondamento.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con errore di arrotondamento.
      */
     @Test
     public void testGetRe_RoundingError() {
@@ -193,8 +193,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria massime.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria massime.
      */
     @Test
     public void testGetRe_MaxRealAndImaginary() {
@@ -206,8 +206,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getRe method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria minime.
+     * Test of getRe method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria minime.
      */
     @Test
     public void testGetRe_MinRealAndImaginary() {
@@ -220,13 +220,12 @@ public class ComplexTest {
 
     /**
      * Fine Test getRe
-
-     method
+     *
+     * method
      */
-
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria positiva.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria positiva.
      */
     @Test
     public void testGetIm_PositiveImaginary() {
@@ -238,8 +237,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria negativa.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria negativa.
      */
     @Test
     public void testGetIm_NegativeImaginary() {
@@ -251,8 +250,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale zero.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale zero.
      */
     @Test
     public void testGetIm_RealZero() {
@@ -264,8 +263,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria zero.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria zero.
      */
     @Test
     public void testGetIm_ImaginaryZero() {
@@ -277,8 +276,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria zero.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria zero.
      */
     @Test
     public void testGetIm_ComplexZero() {
@@ -290,8 +289,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria massima.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria massima.
      */
     @Test
     public void testGetIm_MaxImaginary() {
@@ -303,8 +302,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria minima.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria minima.
      */
     @Test
     public void testGetIm_MinImaginary() {
@@ -316,8 +315,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria infinita.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria infinita.
      */
     @Test
     public void testGetIm_InfiniteImaginary() {
@@ -329,8 +328,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria frazionaria.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria frazionaria.
      */
     @Test
     public void testGetIm_FractionalImaginary() {
@@ -342,8 +341,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria frazionaria negativa.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria frazionaria negativa.
      */
     @Test
     public void testGetIm_NegativeFractionalImaginary() {
@@ -355,8 +354,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test of getIm method, of class Complex.
-     * Classe d'equivalenza: Numeri complessi con errore di arrotondamento.
+     * Test of getIm method, of class Complex. Classe d'equivalenza: Numeri
+     * complessi con errore di arrotondamento.
      */
     @Test
     public void testGetIm_RoundingError() {
@@ -367,10 +366,9 @@ public class ComplexTest {
         assertEquals(expResult, result, 0.0001); // Definisci una tolleranza per gli errori di arrotondamento
     }
 
-
     /**
-     * Test del metodo getIm della classe Complex.
-     * Classe d'equivalenza testata: Parte reale e immaginaria massime.
+     * Test del metodo getIm della classe Complex. Classe d'equivalenza testata:
+     * Parte reale e immaginaria massime.
      */
     @Test
     public void testGetIm_MaxRealAndImaginary() {
@@ -382,8 +380,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo getIm della classe Complex.
-     * Classe d'equivalenza testata: Parte reale e immaginaria minime.
+     * Test del metodo getIm della classe Complex. Classe d'equivalenza testata:
+     * Parte reale e immaginaria minime.
      */
     @Test
     public void testGetIm_MinRealAndImaginary() {
@@ -393,13 +391,14 @@ public class ComplexTest {
         double result = instance.getIm();
         assertEquals(expResult, result, 0.0);
     }
+
     /**
      * Fine Test del metodo getIm della classe Complex.
      */
 
     /**
-     * Test del metodo toString della classe Complex.
-     * Classe d'equivalenza testata: Parte reale non nulla, parte immaginaria nulla.
+     * Test del metodo toString della classe Complex. Classe d'equivalenza
+     * testata: Parte reale non nulla, parte immaginaria nulla.
      */
     @Test
     public void testToString_RealPart() {
@@ -411,8 +410,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo toString della classe Complex.
-     * Classe d'equivalenza testata: Parte reale nulla, parte immaginaria negativa.
+     * Test del metodo toString della classe Complex. Classe d'equivalenza
+     * testata: Parte reale nulla, parte immaginaria negativa.
      */
     @Test
     public void testToString_ImaginaryPart() {
@@ -424,8 +423,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo toString della classe Complex.
-     * Classe d'equivalenza testata: Entrambe le parti reali e immaginarie non nulle.
+     * Test del metodo toString della classe Complex. Classe d'equivalenza
+     * testata: Entrambe le parti reali e immaginarie non nulle.
      */
     @Test
     public void testToString_RealAndImaginaryParts() {
@@ -437,8 +436,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo toString della classe Complex.
-     * Classe d'equivalenza testata: Entrambe le parti reali e immaginarie negative.
+     * Test del metodo toString della classe Complex. Classe d'equivalenza
+     * testata: Entrambe le parti reali e immaginarie negative.
      */
     @Test
     public void testToString_NegativeRealAndImaginary() {
@@ -448,13 +447,14 @@ public class ComplexTest {
         String result = instance.toString();
         assertEquals(expResult, result);
     }
+
     /**
      * Fine Test del metodo toString della classe Complex.
      */
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie positive.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie positive.
      */
     @Test
     public void testAdd_PositiveRealImaginary() {
@@ -467,8 +467,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie negative.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie negative.
      */
     @Test
     public void testAdd_NegativeRealImaginary() {
@@ -481,8 +481,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parte reale e immaginaria nulle.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parte reale e immaginaria nulle.
      */
     @Test
     public void testAdd_ComplexZero() {
@@ -495,8 +495,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie massime.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie massime.
      */
     @Test
     public void testAdd_MaxValues() {
@@ -509,8 +509,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie minime.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie minime.
      */
     @Test
     public void testAdd_MinValues() {
@@ -523,8 +523,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie infinite.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie infinite.
      */
     @Test
     public void testAdd_InfiniteValues() {
@@ -537,8 +537,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo add della classe Complex.
-     * Classe d'equivalenza testata: Parte immaginaria frazionaria negativa.
+     * Test del metodo add della classe Complex. Classe d'equivalenza testata:
+     * Parte immaginaria frazionaria negativa.
      */
     @Test
     public void testAdd_NegativeFractionalImaginary() {
@@ -549,13 +549,14 @@ public class ComplexTest {
         Complex result = Complex.add(a, b);
         assertEquals(expResult.toString(), result.toString());
     }
+
     /**
      * Fine Test del metodo add della classe Complex.
      */
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie positive.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie positive.
      */
     @Test
     public void testSub_PositiveRealImaginary() {
@@ -568,8 +569,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie negative.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie negative.
      */
     @Test
     public void testSub_NegativeRealImaginary() {
@@ -582,8 +583,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parte reale nulla, parte immaginaria nulla.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parte reale nulla, parte immaginaria nulla.
      */
     @Test
     public void testSub_ComplexZero() {
@@ -596,8 +597,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie massime.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie massime.
      */
     @Test
     public void testSub_MaxValues() {
@@ -610,8 +611,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie minime.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie minime.
      */
     @Test
     public void testSub_MinValues() {
@@ -624,8 +625,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie infinite.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie infinite.
      */
     @Test
     public void testSub_InfiniteValues() {
@@ -638,8 +639,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo sub della classe Complex.
-     * Classe d'equivalenza testata: Parte immaginaria frazionaria negativa.
+     * Test del metodo sub della classe Complex. Classe d'equivalenza testata:
+     * Parte immaginaria frazionaria negativa.
      */
     @Test
     public void testSub_NegativeFractionalImaginary() {
@@ -650,13 +651,14 @@ public class ComplexTest {
         Complex result = Complex.sub(b, a);
         assertEquals(expResult.toString(), result.toString());
     }
+
     /**
      * Fine Test del metodo sub della classe Complex.
      */
 
     /**
-     * Test del metodo mul della classe Complex.
-     * Classe d'equivalenza testata: Parti reali e immaginarie.
+     * Test del metodo mul della classe Complex. Classe d'equivalenza testata:
+     * Parti reali e immaginarie.
      */
     @Test
     public void testMulRealAndImaginary() {
@@ -668,8 +670,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo mul della classe Complex.
-     * Classe d'equivalenza testata: Entrambe le parti reali non nulle.
+     * Test del metodo mul della classe Complex. Classe d'equivalenza testata:
+     * Entrambe le parti reali non nulle.
      */
     @Test
     public void testMulBothReal() {
@@ -681,8 +683,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo mul della classe Complex.
-     * Classe d'equivalenza testata: Entrambe le parti immaginarie non nulle.
+     * Test del metodo mul della classe Complex. Classe d'equivalenza testata:
+     * Entrambe le parti immaginarie non nulle.
      */
     @Test
     public void testMulBothImaginary() {
@@ -694,8 +696,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo mul della classe Complex.
-     * Classe d'equivalenza testata: Moltiplicazione per zero.
+     * Test del metodo mul della classe Complex. Classe d'equivalenza testata:
+     * Moltiplicazione per zero.
      */
     @Test
     public void testMulZero() {
@@ -707,8 +709,8 @@ public class ComplexTest {
     }
 
     /**
-     * Test del metodo mul della classe Complex.
-     * Classe d'equivalenza testata: Moltiplicazione con arrotondamento.
+     * Test del metodo mul della classe Complex. Classe d'equivalenza testata:
+     * Moltiplicazione con arrotondamento.
      */
     @Test
     public void testMulWithRounding() {
@@ -718,14 +720,14 @@ public class ComplexTest {
         Complex result = Complex.mul(a, b);
         assertEquals(expResult.toString(), result.toString());
     }
-    
+
     /**
      * Fine Test del metodo mul
      */
-  
     /**
-     * Testa il metodo div della classe Complex con un caso normale.
-     * Classe d'equivalenza: Parte reale e immaginaria sia nel numeratore che nel denominatore.
+     * Testa il metodo div della classe Complex con un caso normale. Classe
+     * d'equivalenza: Parte reale e immaginaria sia nel numeratore che nel
+     * denominatore.
      */
     @Test
     public void testDivNormalCase() {
@@ -737,8 +739,9 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con il numeratore reale uguale a zero.
-     * Classe d'equivalenza: Parte reale del numeratore uguale a zero, parte immaginaria del numeratore diversa da zero.
+     * Testa il metodo div della classe Complex con il numeratore reale uguale a
+     * zero. Classe d'equivalenza: Parte reale del numeratore uguale a zero,
+     * parte immaginaria del numeratore diversa da zero.
      */
     @Test
     public void testDivNumeratorRealZero() {
@@ -750,8 +753,9 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con il numeratore immaginario uguale a zero.
-     * Classe d'equivalenza: Parte reale del numeratore diversa da zero, parte immaginaria del numeratore uguale a zero.
+     * Testa il metodo div della classe Complex con il numeratore immaginario
+     * uguale a zero. Classe d'equivalenza: Parte reale del numeratore diversa
+     * da zero, parte immaginaria del numeratore uguale a zero.
      */
     @Test
     public void testDivNumeratorImaginaryZero() {
@@ -763,8 +767,9 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con il denominatore reale uguale a zero.
-     * Classe d'equivalenza: Parte reale del denominatore uguale a zero, parte immaginaria del denominatore diversa da zero.
+     * Testa il metodo div della classe Complex con il denominatore reale uguale
+     * a zero. Classe d'equivalenza: Parte reale del denominatore uguale a zero,
+     * parte immaginaria del denominatore diversa da zero.
      */
     @Test
     public void testDivDenominatorRealZero() {
@@ -776,8 +781,9 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con il denominatore immaginario uguale a zero.
-     * Classe d'equivalenza: Parte reale del denominatore diversa da zero, parte immaginaria del denominatore uguale a zero.
+     * Testa il metodo div della classe Complex con il denominatore immaginario
+     * uguale a zero. Classe d'equivalenza: Parte reale del denominatore diversa
+     * da zero, parte immaginaria del denominatore uguale a zero.
      */
     @Test
     public void testDivDenominatorImaginaryZero() {
@@ -789,8 +795,9 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con numeratore e denominatore con segni misti.
-     * Classe d'equivalenza: Parte reale e immaginaria del numeratore e denominatore con segni misti.
+     * Testa il metodo div della classe Complex con numeratore e denominatore
+     * con segni misti. Classe d'equivalenza: Parte reale e immaginaria del
+     * numeratore e denominatore con segni misti.
      */
     @Test
     public void testDivMixedSigns() {
@@ -815,8 +822,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo div della classe Complex con numeri molto piccoli.
-     * Classe d'equivalenza: Numeri molto piccoli.
+     * Testa il metodo div della classe Complex con numeri molto piccoli. Classe
+     * d'equivalenza: Numeri molto piccoli.
      */
     @Test
     public void testDivSmallNumbers() {
@@ -826,9 +833,10 @@ public class ComplexTest {
         Complex expResult = new Complex(0.0001, 0);
         assertEquals(expResult.toString(), result.toString());
     }
+
     /**
-     * Testa il metodo div della classe Complex con numeri molto grandi.
-     * Classe d'equivalenza: Numeri molto grandi.
+     * Testa il metodo div della classe Complex con numeri molto grandi. Classe
+     * d'equivalenza: Numeri molto grandi.
      */
     @Test
     public void testDivBigNumbers() {
@@ -838,13 +846,14 @@ public class ComplexTest {
         Complex expResult = new Complex(1000000000, 0);
         assertEquals(expResult.toString(), result.toString());
     }
+
     /**
      * Fine del test del metodo div della classe Complex.
      */
- 
+
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria positive.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria positive.
      */
     @Test
     public void testSqrtPositiveComplex() {
@@ -861,8 +870,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale e immaginaria negative.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale e immaginaria negative.
      */
     @Test
     public void testSqrtNegativeComplex() {
@@ -879,8 +888,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri puramente immaginari.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * puramente immaginari.
      */
     @Test
     public void testSqrtPureImaginaryComplex() {
@@ -897,8 +906,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri puramente reali.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * puramente reali.
      */
     @Test
     public void testSqrtPureRealComplex() {
@@ -915,8 +924,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte immaginaria zero.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte immaginaria zero.
      */
     @Test
     public void testSqrtImaginaryZeroComplex() {
@@ -933,8 +942,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo sqrt della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale zero.
+     * Testa il metodo sqrt della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale zero.
      */
     @Test
     public void testSqrtRealZeroComplex() {
@@ -953,10 +962,9 @@ public class ComplexTest {
     /**
      * Fine del test del metodo sqrt della classe Complex.
      */
-
     /**
-     * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numero complesso con parte reale e immaginaria positiva.
+     * Testa il metodo change della classe Complex. Classe d'equivalenza: Numero
+     * complesso con parte reale e immaginaria positiva.
      */
     @Test
     public void testChangePositiveComplex() {
@@ -968,8 +976,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale negativa e immaginaria positiva.
+     * Testa il metodo change della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale negativa e immaginaria positiva.
      */
     @Test
     public void testChangeRealNegativeComplex() {
@@ -981,8 +989,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numeri complessi con parte reale positiva e immaginaria negativa.
+     * Testa il metodo change della classe Complex. Classe d'equivalenza: Numeri
+     * complessi con parte reale positiva e immaginaria negativa.
      */
     @Test
     public void testChangeComplexNegativeComplex() {
@@ -994,8 +1002,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numeri complessi molto grandi.
+     * Testa il metodo change della classe Complex. Classe d'equivalenza: Numeri
+     * complessi molto grandi.
      */
     @Test
     public void testChangeVeryLargeComplex() {
@@ -1007,8 +1015,8 @@ public class ComplexTest {
     }
 
     /**
-     * Testa il metodo change della classe Complex.
-     * Classe d'equivalenza: Numeri complessi molto piccoli.
+     * Testa il metodo change della classe Complex. Classe d'equivalenza: Numeri
+     * complessi molto piccoli.
      */
     @Test
     public void testChangeVerySmallComplex() {
@@ -1018,5 +1026,5 @@ public class ComplexTest {
         Complex expResult = new Complex(-1e-100, -1e-100);
         assertEquals(expResult.toString(), result.toString());
     }
-    
+
 }
