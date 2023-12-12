@@ -44,7 +44,9 @@ public class CalculatorControllerTest {
   
 
     /**
-     * Test of verifyNumericInput method, of class CalculatorController.
+     * Test del metodo verifyNumericInput della classe CalculatorController.
+     * Classe d'equivalenza: Inserimento di input contenenti numeri complessi, reali, interi, e parte immaginaria.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente input validi di diversi tipi numerici.
      */
     @Test
     public void testVerifyNumericInput() {
@@ -132,108 +134,134 @@ public class CalculatorControllerTest {
         
     
 
-    /**
-     * Test of verifyArithmeticOperation method, of class CalculatorController.
+        /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di somma.
+     * Classe d'equivalenza: Inserimento del carattere "+" per l'operazione di somma.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di somma.
      */
     @Test
     public void testVerifyArithmeticOperationSomma() {
         System.out.println("testVerifyArithmeticOperationSomma");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "+";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
+
+        String input = "+";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di differenza.
+     * Classe d'equivalenza: Inserimento del carattere "-" per l'operazione di differenza.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di differenza.
+     */
     @Test
     public void testVerifyArithmeticOperationDifferenza() {
         System.out.println("testVerifyArithmeticOperationDifferenza");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "-";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
-    
+
+        String input = "-";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di prodotto.
+     * Classe d'equivalenza: Inserimento del carattere "*" per l'operazione di prodotto.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di prodotto.
+     */
     @Test
     public void testVerifyArithmeticOperationProdotto() {
-        System.out.println("testVerifyArithmeticOperationDifferenza");
+        System.out.println("testVerifyArithmeticOperationProdotto");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "*";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
-    
+
+        String input = "*";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di rapporto.
+     * Classe d'equivalenza: Inserimento del carattere "÷" per l'operazione di rapporto.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di rapporto.
+     */
     @Test
     public void testVerifyArithmeticOperationRapporto() {
         System.out.println("testVerifyArithmeticOperationRapporto");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "÷";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
+
+        String input = "÷";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di radice quadrata.
+     * Classe d'equivalenza: Inserimento del carattere "√" per l'operazione di radice quadrata.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di radice quadrata.
+     */
     @Test
     public void testVerifyArithmeticOperationRadice() {
         System.out.println("testVerifyArithmeticOperationRadice");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "√";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
+
+        String input = "√";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di cambio di segno.
+     * Classe d'equivalenza: Inserimento del carattere "+/-" per l'operazione di cambio di segno.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di cambio di segno.
+     */
     @Test
     public void testVerifyArithmeticOperationCambioSegno() {
         System.out.println("testVerifyArithmeticOperationCambioSegno");
         CalculatorModel model = new CalculatorModel();
-        
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
         model.insertNumber(2, 4);
         Boolean expResult = true;
         Boolean result;
-        
-       String input = "+/-";
-       result=controller.verifyArithmeticOperation(input);
-       assertEquals(expResult, result);
-        }
+
+        String input = "+/-";
+        result = controller.verifyArithmeticOperation(input);
+        assertEquals(expResult, result);
+    }
 
     /**
-     * Test of verifyVariablesOperation method, of class CalculatorController.
+     * Test del metodo verifyVariablesOperation della classe CalculatorController per l'assegnazione di variabili.
+     * Classe d'equivalenza: Inserimento di input nel formato ">x" seguito da una lettera da 'a' a 'z'.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'assegnazione di variabili.
      */
     @Test
     public void testVerifyVariablesOperationAssegnaVariabile() {
-        System.out.println("testVerifyVariablesOperation>x");
+        System.out.println("testVerifyVariablesOperationAssegnaVariabile");
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         Boolean expResult = true;
@@ -247,10 +275,15 @@ public class CalculatorControllerTest {
             assertEquals(expResult, result);
         }
     }
-     
+
+    /**
+     * Test del metodo verifyVariablesOperation della classe CalculatorController per la duplicazione di variabili.
+     * Classe d'equivalenza: Inserimento di input nel formato "<x" seguito da una lettera da 'a' a 'z'.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente la duplicazione di variabili.
+     */
     @Test
     public void testVerifyVariablesOperationDuplicaVariabile() {
-        System.out.println("testVerifyVariablesOperation<x");
+        System.out.println("testVerifyVariablesOperationDuplicaVariabile");
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         Boolean expResult = true;
@@ -265,9 +298,15 @@ public class CalculatorControllerTest {
             assertEquals(expResult, result);
         }
     }
+
+    /**
+     * Test del metodo verifyVariablesOperation della classe CalculatorController per l'operazione di somma con variabili.
+     * Classe d'equivalenza: Inserimento di input nel formato "+x" seguito da una lettera da 'a' a 'z'.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di somma con variabili.
+     */
     @Test
     public void testVerifyVariablesOperationSommaVariabile() {
-        System.out.println("testVerifyVariablesOperation+x");
+        System.out.println("testVerifyVariablesOperationSommaVariabile");
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         Boolean expResult = true;
@@ -283,10 +322,15 @@ public class CalculatorControllerTest {
             assertEquals(expResult, result);
         }
     }
-    
+
+    /**
+     * Test del metodo verifyVariablesOperation della classe CalculatorController per l'operazione di differenza con variabili.
+     * Classe d'equivalenza: Inserimento di input nel formato "-x" seguito da una lettera da 'a' a 'z'.
+     * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di differenza con variabili.
+     */
     @Test
     public void testVerifyVariablesOperationDifferenzaVariabile() {
-        System.out.println("testVerifyVariablesOperation-x");
+        System.out.println("testVerifyVariablesOperationDifferenzaVariabile");
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         Boolean expResult = true;
@@ -302,5 +346,6 @@ public class CalculatorControllerTest {
             assertEquals(expResult, result);
         }
     }
+
     
 }
