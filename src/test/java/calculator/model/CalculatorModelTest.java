@@ -197,7 +197,7 @@ public class CalculatorModelTest {
 
 
     /**
-     * Test del metodo sommaException della classe CalculatorModel.
+     * Test del metodo somma della classe CalculatorModel con gestione dell'eccezione NotEnoughElementException
      * Classe d'equivalenza: StackFinito vuoto.
      * Descrizione del test: Verifica che il lancio di un'eccezione NotEnoughElementException
      * avvenga correttamente quando si tenta di eseguire la somma con uno stack vuoto.
@@ -242,7 +242,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo differenzaException della classe CalculatorModel.
+     * Test del metodo differenza della classe CalculatorModel con gestione dell'eccezione NotEnoughElementException
      * Classe d'equivalenza: StackFinito con meno di due elementi.
      * Descrizione del test: Verifica che il lancio di un'eccezione NotEnoughElementException
      *  avvenga correttamente quando si tenta di eseguire la differenza con meno di due elementi nello stack.
@@ -287,7 +287,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo prodottoException della classe CalculatorModel.
+     * Test del metodo prodotto della classe CalculatorModel con gestione dell'eccezione NotEnoughElementException
      * Classe d'equivalenza: StackFinito con meno di due elementi.
      * Descrizione del test: Verifica che il lancio di un'eccezione NotEnoughElementException
      * avvenga correttamente quando si tenta di eseguire il prodotto con meno di due elementi nello stack.
@@ -332,7 +332,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo rapportoUnderflowException della classe CalculatorModel.
+     * Test del metodo rapporto della classe CalculatorModel con gestione dell'eccezione NotEnoughElementException
      * Classe d'equivalenza: StackFinito con meno di due elementi.
      * Descrizione del test: Verifica che il lancio di un'eccezione NotEnoughElementException
      * avvenga correttamente quando si tenta di eseguire il rapporto con meno di due elementi nello stack.
@@ -354,7 +354,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo rapportoDivisionByZeroException della classe CalculatorModel.
+     * Test del metodo rapporto della classe CalculatorModel. con gestione dell'eccezione DivisionByZeroExceptionExcpetion
      * Classe d'equivalenza: StackFinito con almeno due elementi, divisore zero.
      * Descrizione del test: Verifica che il lancio di un'eccezione DivisionByZeroException
      * avvenga correttamente quando si tenta di eseguire il rapporto con un divisore zero.
@@ -401,7 +401,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo radiceStackUnderflowException della classe CalculatorModel.
+     * Test del metodo radice della classe CalculatorModel con gestione dell'eccezione StackUnderflowException
      * Classe d'equivalenza: StackFinito vuoto.
      * Descrizione del test: Verifica che il lancio di un'eccezione NotEnoughElementException
      *  avvenga correttamente quando si tenta di eseguire la radice con uno stack vuoto.
@@ -422,7 +422,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo radiceStackFullException della classe CalculatorModel.
+     * Test del metodo radice della classe CalculatorModel con gestione dell'eccezione StackFullException
      * Classe d'equivalenza: StackFinito con 50 elementi.
      * Descrizione del test: Verifica che il lancio di un'eccezione StackFullException
      * avvenga correttamente quando si tenta di eseguire la radice con uno stack pieno.
