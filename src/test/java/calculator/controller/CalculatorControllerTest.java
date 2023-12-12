@@ -6,7 +6,9 @@ package calculator.controller;
 
 import calculator.exception.NotEnoughElementException;
 import calculator.model.CalculatorModel;
+import calculator.model.Complex;
 import calculator.view.CalculatorView;
+import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -258,6 +260,7 @@ public class CalculatorControllerTest {
      * Test del metodo verifyVariablesOperation della classe CalculatorController per l'assegnazione di variabili.
      * Classe d'equivalenza: Inserimento di input nel formato ">x" seguito da una lettera da 'a' a 'z'.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'assegnazione di variabili.
+     * Inoltre viene verificata l'integration del sistema
      */
     @Test
     public void testVerifyVariablesOperationAssegnaVariabile() {
@@ -274,6 +277,15 @@ public class CalculatorControllerTest {
             result = controller.verifyVariablesOperation(input);
             assertEquals(expResult, result);
         }
+        Map map=model.getMap();
+        Complex n= new Complex(4,1);
+        /*verifico che tutte le variabili siano state instanziate a valore
+        corretto nella map
+        */
+         for (char c = 'a'; c <= 'z'; c++) {
+           assertEquals(map.get(c).toString(),n.toString());
+        }
+         
     }
 
     /**
