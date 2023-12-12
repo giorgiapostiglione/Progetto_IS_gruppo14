@@ -352,7 +352,6 @@ public class CalculatorControllerTest {
      * Test del metodo verifyVariablesOperation della classe CalculatorController per la duplicazione di variabili.
      * Classe d'equivalenza: Inserimento di input nel formato "<x" seguito da una lettera da 'a' a 'z'.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente la duplicazione di variabili.
-     * 
      * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
