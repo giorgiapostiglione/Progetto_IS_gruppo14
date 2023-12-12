@@ -200,7 +200,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo sommaException della classe CalculatorModel. Classe
+     * Test del metodo somma della classe CalculatorModel. Classe
      * d'equivalenza: StackFinito vuoto. Descrizione del test: Verifica che il
      * lancio di un'eccezione NotEnoughElementException avvenga correttamente
      * quando si tenta di eseguire la somma con uno stack vuoto.
@@ -245,7 +245,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo differenzaException della classe CalculatorModel. Classe
+     * Test del metodo differenza della classe CalculatorModel. Classe
      * d'equivalenza: StackFinito con meno di due elementi. Descrizione del
      * test: Verifica che il lancio di un'eccezione NotEnoughElementException
      * avvenga correttamente quando si tenta di eseguire la differenza con meno
@@ -291,7 +291,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo prodottoException della classe CalculatorModel. Classe
+     * Test del metodo prodotto della classe CalculatorModel. Classe
      * d'equivalenza: StackFinito con meno di due elementi. Descrizione del
      * test: Verifica che il lancio di un'eccezione NotEnoughElementException
      * avvenga correttamente quando si tenta di eseguire il prodotto con meno di
@@ -338,7 +338,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo rapportoUnderflowException della classe CalculatorModel.
+     * Test del metodo rapporto della classe CalculatorModel.
      * Classe d'equivalenza: StackFinito con meno di due elementi. Descrizione
      * del test: Verifica che il lancio di un'eccezione
      * NotEnoughElementException avvenga correttamente quando si tenta di
@@ -361,7 +361,7 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test del metodo rapportoDivisionByZeroException della classe
+     * Test del metodo rapporto della classe
      * CalculatorModel. Classe d'equivalenza: StackFinito con almeno due
      * elementi, divisore zero. Descrizione del test: Verifica che il lancio di
      * un'eccezione DivisionByZeroException avvenga correttamente quando si
