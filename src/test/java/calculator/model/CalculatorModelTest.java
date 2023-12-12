@@ -509,7 +509,10 @@ public class CalculatorModelTest {
     
     }
     /**
-     * Test of cambioSegno method, of class CalculatorModel.
+     * Test del metodo cambioSegno, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno un numero complesso.
+     * Descrizione del test: Si inserisce un numero complesso nello stack,
+     * si chiama il metodo cambioSegno e si verifica che il numero complesso nello stack sia cambiato di segno.
      */
     @Test
     public void testCambioSegno() {
@@ -523,11 +526,17 @@ public class CalculatorModelTest {
        try{
         instance.cambioSegno();
        }catch(StackUnderflowException ex){
-           fail("Unexpected exception: " + ex.getMessage());
+           fail("Eccezione non prevista: " + ex.getMessage());
        }
          assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.change(c1).toString());
     }
 
+    /**
+     * Test del metodo cambioSegno, della classe CalculatorModel, con gestione dell'eccezione StackUnderflowException.
+     * Classe d'equivalenza: Uno stack vuoto.
+     * Descrizione del test: Si verifica che il metodo cambioSegno sollevi correttamente un'eccezione di tipo StackUnderflowException
+     * quando chiamato su uno stack vuoto.
+     */
     @Test
     public void testCambioSegnoException() {
         System.out.println("CambioSegnoException");
@@ -540,7 +549,7 @@ public class CalculatorModelTest {
             // Metodo testato con 0 complessi nello stack
             instance.cambioSegno();
             // Fail se l'eccezione attesa non viene lanciata
-            fail("Expected NotEnoughElementException");
+            fail("Prevista eccezione NotEnoughElementException");
         } catch (StackUnderflowException ex) {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
@@ -549,7 +558,10 @@ public class CalculatorModelTest {
     }
 
     /**
-     * Test of clear method, of class CalculatorModel.
+     * Test del metodo clear, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno un numero complesso.
+     * Descrizione del test: Si inseriscono 50 numeri complessi nello stack,
+     * si chiama il metodo clear e si verifica che lo stack sia vuoto dopo la chiamata al metodo.
      */
     @Test
     public void testClear() {
@@ -563,14 +575,17 @@ public class CalculatorModelTest {
         assert(sf.getSize()==0);
         try{
             sf.pop();
-            fail("Expected StackUnderflowException");
+            fail("Prevista eccezione StackUnderflowException");
         }catch(StackUnderflowException ex){
             
         }
     }
 
     /**
-     * Test of swap method, of class CalculatorModel.
+     * Test del metodo swap, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno due numeri complessi.
+     * Descrizione del test: Si inseriscono due numeri complessi nello stack,
+     * si chiama il metodo swap e si verifica che i due numeri nello stack siano stati scambiati.
      */
     @Test
     public void testSwap() {
@@ -586,12 +601,18 @@ public class CalculatorModelTest {
          try{
         instance.swap();
          }catch(NotEnoughElementException ex){
-             fail("Unexpected exception: " + ex.getMessage());
+             fail("Eccezione non prevista: " + ex.getMessage());
          }
          assertEquals(sf.viewElement(sf.getSize()-1).toString(),c1.toString());
        assertEquals(sf.viewElement(sf.getSize()-2).toString(),c2.toString());
     }
     
+    /**
+     * Test del metodo swap, della classe CalculatorModel, con gestione dell'eccezione NotEnoughElementException.
+     * Classe d'equivalenza: Uno stack con meno di due numeri complessi.
+     * Descrizione del test: Si verifica che il metodo swap sollevi correttamente un'eccezione di tipo NotEnoughElementException
+     * quando chiamato su uno stack con meno di due numeri complessi.
+     */
     @Test
     public void testSwapException() {
         System.out.println("swap");
@@ -604,14 +625,17 @@ public class CalculatorModelTest {
          
          try{
         instance.swap();
-         fail("Expected NotEnoughElementException");
+         fail("Prevista eccezione NotEnoughElementException");
          }catch(NotEnoughElementException ex){
             
          }
          
     }
     /**
-     * Test of drop method, of class CalculatorModel.
+     * Test del metodo drop, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno un numero complesso.
+     * Descrizione del test: Si inseriscono due numeri complessi nello stack, 
+     * si chiama il metodo drop e si verifica che il secondo numero complesso nello stack è stato eliminato.
      */
     @Test
     public void testDrop() {
@@ -627,11 +651,17 @@ public class CalculatorModelTest {
          try{
         instance.drop();
          }catch(NotEnoughElementException ex){
-             fail("Unexpected exception: " + ex.getMessage());
+             fail("Eccezione non prevista: " + ex.getMessage());
          }
           assertEquals(sf.viewElement(sf.getSize()-1).toString(),c1.toString());
     }
 
+    /**
+     * Test del metodo drop, della classe CalculatorModel, con gestione dell'eccezione NotEnoughElementException.
+     * Classe d'equivalenza: Uno stack vuoto.
+     * Descrizione del test: Si verifica che il metodo drop sollevi correttamente un'eccezione di tipo NotEnoughElementException 
+     * quando chiamato su uno stack vuoto.
+     */
     @Test
     public void testDropException() {
         System.out.println("DropException");
@@ -642,13 +672,16 @@ public class CalculatorModelTest {
         assert(sf.getSize()==0);
         try{
             instance.drop();
-            fail("Expected StackUnderflowException");
+            fail("Prevista eccezione StackUnderflowException");
         }catch(StackUnderflowException ex){
             
         }
     }
     /**
-     * Test of dup method, of class CalculatorModel.
+     * Test del metodo dup, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno un numero complesso.
+     * Descrizione del test: Si inserisce un numero complesso nello stack,
+     * si chiama il metodo dup e si verifica che il numero complesso nello stack sia duplicato.
      */
     @Test
     public void testDup() {
@@ -661,15 +694,19 @@ public class CalculatorModelTest {
         try{
         instance.dup();
         }catch(StackUnderflowException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione non prevista: " + ex.getMessage());
         }catch(StackFullException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione non prevista: " + ex.getMessage());
         }
         assertEquals(sf.viewElement(sf.getSize()-1).toString(),sf.viewElement(sf.getSize()-2).toString());
     }
 
-    
-    
+    /**
+     * Test del metodo dup, della classe CalculatorModel, con gestione dell'eccezione StackUnderflowException.
+     * Classe d'equivalenza: Uno stack vuoto.
+     * Descrizione del test: Si verifica che il metodo dup sollevi correttamente un'eccezione di tipo StackUnderflowException 
+     * quando chiamato su uno stack vuoto.
+     */
     @Test
     public void testDupStackUnderflowException() {
         System.out.println("DupStackUnderflowException");
@@ -682,7 +719,7 @@ public class CalculatorModelTest {
             // Metodo testato con 0 complessi nello stack
             instance.dup();
             // Fail se l'eccezione attesa non viene lanciata
-            fail("Expected StackUnderflowException");
+            fail("Prevista eccezione StackUnderflowException");
         } catch (StackUnderflowException ex) {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
@@ -690,7 +727,13 @@ public class CalculatorModelTest {
     
     }
     
-     @Test
+    /**
+     * Test del metodo dup, della classe CalculatorModel, con gestione dell'eccezione StackFullException.
+     * Classe d'equivalenza: Uno stack con al massimo un numero complesso disponibile prima del test.
+     * Descrizione del test: Si riempie lo stack al massimo della sua capacità, 
+     * si chiama il metodo dup e si verifica che il metodo sollevi correttamente un'eccezione di tipo StackFullException.
+     */
+    @Test
     public void testDupStackFullException() {
         System.out.println("DupStackFullException");
         CalculatorModel instance = new CalculatorModel();
@@ -704,7 +747,7 @@ public class CalculatorModelTest {
             // Metodo testato con 50 complessi nello stack
             instance.dup();
             // Fail se l'eccezione attesa non viene lanciata
-            fail("Expected StackFullException");
+            fail("Prevista eccezione StackFullException");
         } catch (StackFullException ex) {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
@@ -712,7 +755,10 @@ public class CalculatorModelTest {
     
     }
     /**
-     * Test of over method, of class CalculatorModel.
+     * Test del metodo over, della classe CalculatorModel.
+     * Classe d'equivalenza: Uno stack con almeno due numeri complessi.
+     * Descrizione del test: Si inseriscono due numeri complessi nello stack, 
+     * si chiama il metodo over e si verifica che il secondo numero complesso nello stack è duplicato e posto in cima allo stack.
      */
     @Test
     public void testOver() {
@@ -727,14 +773,20 @@ public class CalculatorModelTest {
         try{
         instance.over();
         }catch(NotEnoughElementException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione non prevista: " + ex.getMessage());
         }catch(StackFullException ex){
-            fail("Unexpected exception: " + ex.getMessage());
+            fail("Eccezione non prevista: " + ex.getMessage());
         }
         assertEquals(sf.viewElement(sf.getSize()-1).toString(),sf.viewElement(sf.getSize()-3).toString());
     }
     
-     @Test
+    /**
+     * Test del metodo over, della classe CalculatorModel, con gestione dell'eccezione NotEnoughElementException.
+     * Classe d'equivalenza: Uno stack con meno di due numeri complessi.
+     * Descrizione del test: Si verifica che il metodo over sollevi correttamente 
+     * un'eccezione di tipo NotEnoughElementException quando chiamato su uno stack con meno di due numeri complessi.
+     */
+    @Test
     public void testOverNotEnoughElementException() {
         System.out.println("OverNotEnoughElementException");
         CalculatorModel instance = new CalculatorModel();
@@ -746,7 +798,7 @@ public class CalculatorModelTest {
             // Metodo testato con 0 complessi nello stack
             instance.over();
             // Fail se l'eccezione attesa non viene lanciata
-            fail("Expected NotEnoughElementException");
+            fail("Prevista eccezione NotEnoughElementException");
         } catch (NotEnoughElementException ex) {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
@@ -754,7 +806,13 @@ public class CalculatorModelTest {
     
     }
     
-     @Test
+    /**
+     * Test del metodo over, della classe CalculatorModel, con gestione dell'eccezione StackFullException.
+     * Classe d'equivalenza: Uno stack con al massimo un numero complesso disponibile prima del test.
+     * Descrizione del test: Si riempie lo stack al massimo della sua capacità, 
+     * si chiama il metodo over e si verifica che il metodo sollevi correttamente un'eccezione di tipo StackFullException.
+     */
+    @Test
     public void testOverStackFullException() {
         System.out.println("OverStackFullException");
         CalculatorModel instance = new CalculatorModel();
@@ -768,7 +826,7 @@ public class CalculatorModelTest {
             // Metodo testato con 50 complessi nello stack
             instance.dup();
             // Fail se l'eccezione attesa non viene lanciata
-            fail("Expected StackFullException");
+            fail("Prevista eccezione StackFullException");
         } catch (StackFullException ex) {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
@@ -776,205 +834,246 @@ public class CalculatorModelTest {
     
     }
     /**
-     * Test of sommaVariabile method, of class CalculatorModel.
+     * Test del metodo sommaVariabile, della classe CalculatorModel.
+     * Classe d'equivalenza: Variabili correttamente assegnate e stack non vuoto.
+     * Descrizione del test: Si verifica se il metodo sommaVariabile somma correttamente
+     * due variabili precedentemente assegnate e aggiunge il risultato alla stack.
      */
     @Test
     public void testSommaVariabile() {
         System.out.println("sommaVariabile");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
-         
-        Complex c1=new Complex(-3, 8);
-        Complex c2=new Complex(1, 7);
-        assert(sf.getSize()+1<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+        Map var = instance.getMap();
+
+        Complex c1 = new Complex(-3, 8);
+        Complex c2 = new Complex(1, 7);
+
+        assert(sf.getSize() + 1 < sf.getMaxSize());
         sf.push(c1);
         sf.push(c2);
-       
-        assert(sf.getSize()>0);
+
+        assert(sf.getSize() > 0);
         instance.assegnaVariabile(c);
-        
-        try{
+
+        try {
             instance.sommaVariabile(c);
-        }catch(StackUnderflowException ex){
+        } catch (StackUnderflowException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-        }catch(InvalidInputException ex){
+        } catch (InvalidInputException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-            }
-      assertEquals(var.get(c).toString(),Complex.add(c1, c2).toString());
+        }
+
+        assertEquals(var.get(c).toString(), Complex.add(c1, c2).toString());
     }
-@Test
+
+    /**
+     * Test del metodo sommaVariabile, della classe CalculatorModel, con StackUnderflowException.
+     * Classe d'equivalenza: Stack vuoto.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * StackUnderflowException quando la stack è vuota.
+     */
+    @Test
     public void testSommaVariabileStackUnderflowException() {
         System.out.println("SommaVariabileStackUnderflowException");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         
-         
-        Complex c1=new Complex(-3, 8);
-        
-        assert(sf.getSize()<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+
+        Complex c1 = new Complex(-3, 8);
+
+        assert(sf.getSize() < sf.getMaxSize());
         sf.push(c1);
-        
-       
-        assert(sf.getSize()>0);
+
+        assert(sf.getSize() > 0);
         instance.assegnaVariabile(c);
-        
-        
-        try{
+
+        try {
             instance.sommaVariabile(c);
-             fail("Expected StackUnderflowException");
-        }catch(StackUnderflowException ex){
-            
+            fail("Expected StackUnderflowException");
+        } catch (StackUnderflowException ex) {
+
         }
-      
     }
-    
+
+    /**
+     * Test del metodo sommaVariabile, della classe CalculatorModel, con InvalidVariableException.
+     * Classe d'equivalenza: Variabile non assegnata.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * InvalidVariableException quando si cerca di sommare una variabile non assegnata.
+     */
     @Test
     public void testSommaVariabileInvalidVariableException() {
         System.out.println("testSommaVariabileInvalidVariableException");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         
-         
-        Complex c1=new Complex(-3, 8);
-        Complex c2=new Complex(1, 7);
-        assert(sf.getSize()+1<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+
+        Complex c1 = new Complex(-3, 8);
+        Complex c2 = new Complex(1, 7);
+
+        assert(sf.getSize() + 1 < sf.getMaxSize());
         sf.push(c1);
         sf.push(c2);
-        try{
+
+        try {
             instance.sommaVariabile(c);
-             fail("Expected InvalidVariableException");
-        }catch(InvalidVariableException ex){
-            
+            fail("Expected InvalidVariableException");
+        } catch (InvalidVariableException ex) {
+
         }
-      
     }
+
+
+
     /**
-     * Test of differenzaVariabile method, of class CalculatorModel.
+     * Test del metodo differenzaVariabile, della classe CalculatorModel.
+     * Classe d'equivalenza: Variabili correttamente assegnate e stack non vuoto.
+     * Descrizione del test: Si verifica se il metodo differenzaVariabile calcola correttamente
+     * la differenza tra due variabili precedentemente assegnate e aggiunge il risultato alla stack.
      */
     @Test
     public void testDifferenzaVariabile() {
         System.out.println("testDifferenzaVariabile");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
-         
-        Complex c1=new Complex(15, -8);
-        Complex c2=new Complex(1, 7);
-        assert(sf.getSize()+1<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+        Map var = instance.getMap();
+
+        Complex c1 = new Complex(15, -8);
+        Complex c2 = new Complex(1, 7);
+
+        assert(sf.getSize() + 1 < sf.getMaxSize());
         sf.push(c1);
         sf.push(c2);
-       
-        assert(sf.getSize()>0);
+
+        assert(sf.getSize() > 0);
         instance.assegnaVariabile(c);
-        
-        try{
+
+        try {
             instance.differenzaVariabile(c);
-        }catch(StackUnderflowException ex){
+        } catch (StackUnderflowException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-        }catch(InvalidInputException ex){
+        } catch (InvalidInputException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-            }
-      assertEquals(var.get(c).toString(),Complex.sub(c1, c2).toString());
+        }
+
+        assertEquals(var.get(c).toString(), Complex.sub(c1, c2).toString());
     }
-@Test
+
+    /**
+     * Test del metodo differenzaVariabile, della classe CalculatorModel, con StackUnderflowException.
+     * Classe d'equivalenza: Stack vuoto.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * StackUnderflowException quando la stack è vuota.
+     */
+    @Test
     public void testDifferenzaVariabileStackUnderflowException() {
         System.out.println("testDifferenzaVariabileStackUnderflowException");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         
-         
-        Complex c1=new Complex(-3, 8);
-        
-        assert(sf.getSize()<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+
+        Complex c1 = new Complex(-3, 8);
+
+        assert(sf.getSize() < sf.getMaxSize());
         sf.push(c1);
-        
-       
-        assert(sf.getSize()>0);
+
+        assert(sf.getSize() > 0);
         instance.assegnaVariabile(c);
-        
-        
-        try{
+
+        try {
             instance.differenzaVariabile(c);
-             fail("Expected StackUnderflowException");
-        }catch(StackUnderflowException ex){
-            
+            fail("Expected StackUnderflowException");
+        } catch (StackUnderflowException ex) {
+
         }
-      
     }
-    
+
+    /**
+     * Test del metodo differenzaVariabile, della classe CalculatorModel, con InvalidVariableException.
+     * Classe d'equivalenza: Variabile non assegnata.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * InvalidVariableException quando si cerca di calcolare la differenza di una variabile non assegnata.
+     */
     @Test
     public void testDifferenzaVariabileInvalidVariableException() {
         System.out.println("testDifferenzaVariabileInvalidVariableException");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         
-         
-        Complex c1=new Complex(-3, 8);
-        Complex c2=new Complex(1, 7);
-        assert(sf.getSize()+1<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+
+        Complex c1 = new Complex(-3, 8);
+        Complex c2 = new Complex(1, 7);
+
+        assert(sf.getSize() + 1 < sf.getMaxSize());
         sf.push(c1);
         sf.push(c2);
-        try{
+
+        try {
             instance.differenzaVariabile(c);
-             fail("Expected InvalidVariableException");
-        }catch(InvalidVariableException ex){
-            
+            fail("Expected InvalidVariableException");
+        } catch (InvalidVariableException ex) {
+
         }
-      
     }
 
     /**
-     * Test of duplicazioneVariabile method, of class CalculatorModel.
+     * Test del metodo duplicazioneVariabile, della classe CalculatorModel.
+     * Classe d'equivalenza: Variabile correttamente assegnata e stack non vuoto.
+     * Descrizione del test: Si verifica se il metodo duplicazioneVariabile duplica correttamente
+     * il valore di una variabile precedentemente assegnata e aggiunge il risultato alla stack.
      */
     @Test
     public void testDuplicazioneVariabile() {
         System.out.println("testDuplicazioneVariabile");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         Map var=instance.getMap();
-         
-        Complex c1=new Complex(15, -8);
-        
-        assert(sf.getSize()<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+        Map var = instance.getMap();
+
+        Complex c1 = new Complex(15, -8);
+
+        assert(sf.getSize() < sf.getMaxSize());
         sf.push(c1);
-        
-       
-        assert(sf.getSize()>0);
+
+        assert(sf.getSize() > 0);
         instance.assegnaVariabile(c);
-        
-        try{
+
+        try {
             instance.duplicazioneVariabile(c);
-        }catch(StackFullException ex){
+        } catch (StackFullException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-        }catch(InvalidInputException ex){
+        } catch (InvalidInputException ex) {
             fail("Unexpected exception: " + ex.getMessage());
-            }
-      assertEquals(var.get(c).toString(),sf.viewElement(sf.getSize()-1).toString());
+        }
+
+        assertEquals(var.get(c).toString(), sf.viewElement(sf.getSize() - 1).toString());
     }
-@Test
+
+    /**
+     * Test del metodo duplicazioneVariabile, della classe CalculatorModel, con StackFullException.
+     * Classe d'equivalenza: Stack pieno.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * StackFullException quando la stack è piena.
+     */
+    @Test
     public void testDuplicazioneVariabileStackFullException() {
-        System.out.println("testDuplicazioneVariabileStackFullException");
+          System.out.println("testDuplicazioneVariabileStackFullException");
         char c = 'a';
-        
+       
         CalculatorModel instance = new CalculatorModel();
         StackFinito sf=instance.getSf();
-         
-         
+        
+        
         Complex c1=new Complex(-3, 8);
         assert(sf.getSize()<sf.getMaxSize());
         sf.push(c1);
@@ -984,81 +1083,89 @@ public class CalculatorModelTest {
         for (int i = 0; i < 50; i++) {
                 instance.insertNumber(i * -2, i * 6.41);
             }
-        
-        try{
+
+        try {
             instance.duplicazioneVariabile(c);
-             fail("Expected StackFullException");
-        }catch(StackFullException ex){
-            
+            fail("Expected StackFullException");
+        } catch (StackFullException ex) {
+
         }
-      
-    }
-    
-    @Test
-    public void testDuplicazioneVariabileInvalidVariableException() {
-        System.out.println("testDifferenzaVariabileInvalidVariableException");
-        char c = 'a';
-        
-        CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-         
-         
-       
-        assert(sf.getSize()<sf.getMaxSize());
-        
-        try{
-            instance.duplicazioneVariabile(c);
-             fail("Expected InvalidVariableException");
-        }catch(InvalidVariableException ex){
-            
-        }
-      
     }
 
     /**
-     * Test of assegnaVaribile method, of class CalculatorModel.
+     * Test del metodo duplicazioneVariabile, della classe CalculatorModel, con InvalidVariableException.
+     * Classe d'equivalenza: Variabile non assegnata.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * InvalidVariableException quando si cerca di duplicare una variabile non assegnata.
+     */
+    @Test
+    public void testDuplicazioneVariabileInvalidVariableException() {
+        System.out.println("testDuplicazioneVariabileInvalidVariableException");
+        char c = 'a';
+
+        CalculatorModel instance = new CalculatorModel();
+        StackFinito sf = instance.getSf();
+
+        assert(sf.getSize() < sf.getMaxSize());
+
+        try {
+            instance.duplicazioneVariabile(c);
+            fail("Expected InvalidVariableException");
+        } catch (InvalidVariableException ex) {
+
+        }
+    }
+
+    /**
+     * Test del metodo assegnaVariabile, della classe CalculatorModel.
+     * Classe d'equivalenza: Stack non vuoto.
+     * Descrizione del test: Si verifica se il metodo assegnaVariabile assegna correttamente
+     * il valore dalla cima della stack a una variabile.
      */
     @Test
     public void testAssegnaVaribile() {
-        System.out.println("assegnaVaribile");
+        System.out.println("testAssegnaVaribile");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-        
-        Complex c1=new Complex(-3, 8);
-        assert(sf.getSize()<sf.getMaxSize());
+        StackFinito sf = instance.getSf();
+
+        Complex c1 = new Complex(-3, 8);
+
+        assert(sf.getSize() < sf.getMaxSize());
         sf.push(c1);
-        Map var=instance.getMap();
-        try{
+
+        Map var = instance.getMap();
+        try {
             instance.assegnaVariabile(c);
-        }catch(StackUnderflowException ex){
+        } catch (StackUnderflowException ex) {
             fail("Unexpected exception: " + ex.getMessage());
         }
-      assertEquals(var.get(c).toString(),c1.toString());
-        
+        assertEquals(var.get(c).toString(), c1.toString());
     }
+
+    /**
+     * Test del metodo assegnaVariabile, della classe CalculatorModel, con StackUnderflowException.
+     * Classe d'equivalenza: Stack vuoto.
+     * Descrizione del test: Si verifica se il metodo gestisce correttamente l'eccezione
+     * StackUnderflowException quando la stack è vuota.
+     */
     @Test
     public void testAssegnaVaribileException() {
-        System.out.println("assegnaVaribileException");
+        System.out.println("testAssegnaVaribileException");
         char c = 'a';
-        
+
         CalculatorModel instance = new CalculatorModel();
-        StackFinito sf=instance.getSf();
-        
-        
-        assert(sf.getSize()==0);
-        
-        
-        try{
+        StackFinito sf = instance.getSf();
+
+        assert(sf.getSize() == 0);
+
+        try {
             instance.assegnaVariabile(c);
-             fail("Expected exception: ");
-        }catch(StackUnderflowException ex){
-           
+            fail("Expected exception: ");
+        } catch (StackUnderflowException ex) {
+
         }
-      
-        
     }
-   
-    
+       
 }
