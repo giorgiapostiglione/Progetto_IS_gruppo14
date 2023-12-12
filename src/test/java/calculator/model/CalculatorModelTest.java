@@ -82,14 +82,17 @@ public class CalculatorModelTest {
         // Test del metodo toStringHM che restituisce una rappresentazione stringa delle variabili assegnate.
         System.out.println("toStringHM");
         CalculatorModel instance = new CalculatorModel();
+        //inserisco due numeri nello stack
         instance.insertNumber(4, 7);
         instance.insertNumber(3, 5);
         try {
+            //assegno i due numeri inseriti alle variabili
             instance.assegnaVariabile('c');
             instance.assegnaVariabile('d');
         } catch (StackUnderflowException ex) {
             fail("Eccezione inaspettata: " + ex.getMessage());
         }
+        
         String expResult = "c=5.0 + 3.0j\nd=7.0 + 4.0j\n";
         String result = instance.toStringHM();
         assertEquals(expResult, result);
@@ -297,6 +300,9 @@ public class CalculatorModelTest {
     }
     /**
      * Test of prodotto method, of class CalculatorModel.
+     *  
+     * Metodo testato con classe d'equivalenza:
+     * - due numeri complessi nello stack.
      */
     @Test
     public void testProdotto() {
@@ -317,6 +323,12 @@ public class CalculatorModelTest {
         // Verifica se il prodotto è corretto
         assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.mul(c2, c1).toString());
     }
+    /**
+     * Test of ProdottoException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Meno di due numeri complessi nello stack.
+     */
     @Test
     public void testProdottoException() {
         System.out.println("ProdottoException");
@@ -337,7 +349,10 @@ public class CalculatorModelTest {
         }
     }
     /**
-     * Test of rapporto method, of class CalculatorModel.
+     * Test of prodotto method, of class CalculatorModel.
+     *  
+     * Metodo testato con classe d'equivalenza:
+     * - due numeri complessi nello stack.
      */
     @Test
     public void testRapporto() {
@@ -360,6 +375,12 @@ public class CalculatorModelTest {
         // Verifica se il rapporto è corretto
         assertEquals(sf.viewElement(sf.getSize() - 1).toString(), Complex.div(c2, c1).toString());
     }
+     /**
+     * Test of RapportoUnderflowException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Meno di due numeri complessi nello stack.
+     */
     @Test
     public void testRapportoUnderflowException() {
         System.out.println("RapportoException");
@@ -379,6 +400,12 @@ public class CalculatorModelTest {
             // Se l'eccezione attesa viene lanciata, il test è corretto
         }
     }
+    /**
+     * Test of RapportoDivisionByZeroException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - Divisore nullo.
+     */
     @Test
     public void testRapportoDivisionByZeroExceptionExcpetion() {
          System.out.println("rapporto");
@@ -400,6 +427,9 @@ public class CalculatorModelTest {
     }
     /**
      * Test of radice method, of class CalculatorModel.
+     *  
+     * Metodo testato con classe d'equivalenza:
+     * - un numero complesso nello stack.
      */
     @Test
     public void testRadice() {
@@ -426,7 +456,12 @@ public class CalculatorModelTest {
         assertEquals(sf.viewElement(sf.getSize() - 1).toString(), c[1].toString());  
         assertEquals(sf.viewElement(sf.getSize() - 2).toString(), c[0].toString());
     }
-    
+    /**
+     * Test of RadiceStackUnderflowException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - 0 numeri complessi nello stack.
+     */
     @Test
     public void testRadiceStackUnderflowException() {
         System.out.println("RadiceStackUnderflowException");
@@ -446,7 +481,12 @@ public class CalculatorModelTest {
         
     
     }
-    
+    /**
+     * Test of RadiceStackUnderflowException method, of class CalculatorModel.
+     * 
+     * Metodo testato con classe d'equivalenza:
+     * - 0 numeri complessi nello stack.
+     */
      @Test
     public void testRadiceStackFullException() {
         System.out.println("RadiceStackFullException");
