@@ -140,6 +140,7 @@ public class CalculatorControllerTest {
      * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di somma.
      * Classe d'equivalenza: Inserimento del carattere "+" per l'operazione di somma.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di somma.
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyArithmeticOperationSomma() {
@@ -154,12 +155,21 @@ public class CalculatorControllerTest {
         String input = "+";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        
+        /*Verifico integrazione sistema controllando che la somma sia stata effettuata e 
+        correttamente inserita
+        */
+        Complex c1= new Complex(4,1);
+        Complex c2= new Complex(4,2);
+        Complex sum=Complex.add(c1,c2); 
+        assertEquals(sum.toString(),model.getSf().viewElement(0).toString());
     }
     
     /**
      * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di differenza.
      * Classe d'equivalenza: Inserimento del carattere "-" per l'operazione di differenza.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di differenza.
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyArithmeticOperationDifferenza() {
@@ -174,12 +184,21 @@ public class CalculatorControllerTest {
         String input = "-";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        
+        /*Verifico integrazione sistema controllando che la differenza sia stata effettuata e 
+        correttamente inserita
+        */
+        Complex c1= new Complex(4,1);
+        Complex c2= new Complex(4,2);
+        Complex sub=Complex.sub(c2,c1); 
+        assertEquals(sub.toString(),model.getSf().viewElement(0).toString());
     }
 
     /**
      * Test del metodo verifyArithmeticOperation della classe CalculatorController per l'operazione di prodotto.
      * Classe d'equivalenza: Inserimento del carattere "*" per l'operazione di prodotto.
      * Descrizione del test: Si verifica se il metodo riconosce correttamente l'operazione di prodotto.
+     * Inoltre viene verificata la corretta integrazione del sistema
      */
     @Test
     public void testVerifyArithmeticOperationProdotto() {
@@ -194,6 +213,14 @@ public class CalculatorControllerTest {
         String input = "*";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        
+        /*Verifico integrazione sistema controllando che il prodotto sia stata effettuato e 
+        correttamente inserito
+        */
+        Complex c1= new Complex(4,1);
+        Complex c2= new Complex(4,2);
+        Complex prodotto=Complex.mul(c1,c2); 
+        assertEquals(prodotto.toString(),model.getSf().viewElement(0).toString());
     }
 
     /**
@@ -214,6 +241,14 @@ public class CalculatorControllerTest {
         String input = "÷";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        
+        /*Verifico integrazione sistema controllando che il rapporto sia stata effettuato e 
+        correttamente inserito
+        */
+        Complex c1= new Complex(4,1);
+        Complex c2= new Complex(4,2);
+        Complex div=Complex.div(c2,c1); 
+        assertEquals(div.toString(),model.getSf().viewElement(0).toString());
     }
 
     /**
@@ -227,13 +262,22 @@ public class CalculatorControllerTest {
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
-        model.insertNumber(2, 4);
+        
         Boolean expResult = true;
         Boolean result;
 
         String input = "√";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        
+        /*Verifico integrazione sistema controllando che la radice sia stata effettuata e 
+        i risultati correttamente inseriti
+        */
+        Complex c1= new Complex(4,1);
+        Complex rad[]= new Complex[2];
+        rad=Complex.sqrt(c1); 
+        assertEquals(rad[1].toString(),model.getSf().viewElement(model.getSf().getSize()-1).toString());
+        assertEquals(rad[0].toString(),model.getSf().viewElement(model.getSf().getSize()-2).toString());
     }
 
     /**
@@ -247,13 +291,18 @@ public class CalculatorControllerTest {
         CalculatorModel model = new CalculatorModel();
         CalculatorController controller = new CalculatorController(model);
         model.insertNumber(1, 4);
-        model.insertNumber(2, 4);
+        
         Boolean expResult = true;
         Boolean result;
 
         String input = "+/-";
         result = controller.verifyArithmeticOperation(input);
         assertEquals(expResult, result);
+        /*Verifico integrazione sistema controllando che il cambio segno sia stato effettuato e 
+        il risultato correttamente inserito
+        */
+        Complex c= new Complex(-4,-1);
+        assertEquals(c.toString(),model.getSf().viewElement(0).toString());
     }
 
     /**
