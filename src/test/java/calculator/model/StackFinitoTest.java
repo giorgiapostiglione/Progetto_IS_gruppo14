@@ -39,6 +39,34 @@ public class StackFinitoTest {
     }
     
     /**
+     * Test del metodo getSize della classe StackFinito.
+     * Verifica che getSize restituisca 0 essendo lo stack vuoto.
+     * Classe d'equivalenza testata: Stack vuoto.
+     */
+    @Test
+    public void testGetSize_emptyStack() {
+        System.out.println("getSize");
+        StackFinito instance = new StackFinito();
+        int expResult = 0;
+        int result = instance.getSize();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo getMaxSize della classe StackFinito.
+     * Verifica che getMaxSize prelevi correttamente l'attributo privato maxSize.
+     * Classe d'equivalenza testata: Nessuna inserzione o rimozione di elementi.
+     */
+    @Test
+    public void testGetMaxSize() {
+        System.out.println("getMaxSize");
+        StackFinito instance = new StackFinito();
+        int expResult = 50;
+        int result = instance.getMaxSize();
+        assertEquals(expResult, result);
+    }
+    
+    /**
      * Test del metodo push della classe StackFinito.
      * Verifica che l'elemento presente in cima allo stack sia uguale a quello inserito.
      * Classe d'equivalenza testata: Parte reale e immaginaria con valori arbitrari (-55.603, 81).
@@ -110,6 +138,40 @@ public class StackFinitoTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test del metodo viewElement della classe StackFinito.
+     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con un solo elemento.
+     * Classe d'equivalenza testata: Stack con un solo elemento.
+     */
+    @Test
+    public void testViewElement_elem() {
+        System.out.println("viewElement");
+        StackFinito instance = new StackFinito();
+        Complex expResult = new Complex(3069.55, -2674.083);
+        instance.push(expResult);
+        Complex result = instance.viewElement(instance.getSize()-1);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test del metodo viewElement della classe StackFinito.
+     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con più elementi.
+     * Classe d'equivalenza testata: Stack con più elementi.
+     */
+    @Test
+    public void testViewElement_elems() {
+        System.out.println("viewElement");
+        StackFinito instance = new StackFinito();
+        Complex c1=new Complex(-1874.39, -5036.3398);
+        Complex expResult = new Complex(-2679, 9452.3390);
+        Complex c2=new Complex(-5206.45, 36);
+        instance.push(c1);
+        instance.push(expResult);
+        instance.push(c2);
+        Complex result = instance.viewElement(instance.getSize()-2);
+        assertEquals(expResult, result);
+    }
+    
     /**
      * Test del metodo pop della classe StackFinito.
      * Verifica che l'elemento inserito sia uguale a quello prelevato dalla pop in caso di stack vuoto.
@@ -219,74 +281,10 @@ public class StackFinitoTest {
     }
 
     /**
-     * Test del metodo getSize della classe StackFinito.
-     * Verifica che getSize restituisca 0 essendo lo stack vuoto.
-     * Classe d'equivalenza testata: Stack vuoto.
-     */
-    @Test
-    public void testGetSize_emptyStack() {
-        System.out.println("getSize");
-        StackFinito instance = new StackFinito();
-        int expResult = 0;
-        int result = instance.getSize();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test del metodo getMaxSize della classe StackFinito.
-     * Verifica che getMaxSize prelevi correttamente l'attributo privato maxSize.
-     * Classe d'equivalenza testata: Nessuna inserzione o rimozione di elementi.
-     */
-    @Test
-    public void testGetMaxSize() {
-        System.out.println("getMaxSize");
-        StackFinito instance = new StackFinito();
-        int expResult = 50;
-        int result = instance.getMaxSize();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test del metodo viewElement della classe StackFinito.
-     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con un solo elemento.
-     * Classe d'equivalenza testata: Stack con un solo elemento.
-     */
-    @Test
-    public void testViewElement_elem() {
-        System.out.println("viewElement");
-        StackFinito instance = new StackFinito();
-        Complex expResult = new Complex(3069.55, -2674.083);
-        instance.push(expResult);
-        Complex result = instance.viewElement(instance.getSize()-1);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test del metodo viewElement della classe StackFinito.
-     * Verifica che viewElement restituisca correttamente un elemento presente nello stack con più elementi.
-     * Classe d'equivalenza testata: Stack con più elementi.
-     */
-    @Test
-    public void testViewElement_elems() {
-        System.out.println("viewElement");
-        StackFinito instance = new StackFinito();
-        Complex c1=new Complex(-1874.39, -5036.3398);
-        Complex expResult = new Complex(-2679, 9452.3390);
-        Complex c2=new Complex(-5206.45, 36);
-        instance.push(c1);
-        instance.push(expResult);
-        instance.push(c2);
-        Complex result = instance.viewElement(instance.getSize()-2);
-        assertEquals(expResult, result);
-    }
-
-    /**
      * Test del metodo stampaDodiceElementi della classe StackFinito.
      * Verifica che stampaDodiceElementi restituisca una stringa vuota per uno stack vuoto.
      * Classe d'equivalenza testata: Stack vuoto.
      */
-    
-    
     @Test
     public void testStampaDodiceElementi_stackEmpty() {
         System.out.println("stampaDodiceElementi");
@@ -302,7 +300,6 @@ public class StackFinitoTest {
      * Verifica che stampaDodiceElementi restituisca una stringa con gli unici dodici elementi presenti nello stack.
      * Classe d'equivalenza testata: StackFinito.
      */
-    
     @Test
     public void testStampaDodiceElementi_twelveElements() {
         System.out.println("stampaDodiceElementi");
@@ -323,7 +320,6 @@ public class StackFinitoTest {
      * Verifica che stampaDodiceElementi restituisca una stringa con i primi dodici elementi presenti in cima allo stack.
      * Classe d'equivalenza testata: StackFinito.
      */
-    
     @Test
     public void testStampaDodiceElementi_moreThanTwelveElements() {
         System.out.println("stampaDodiceElementi");
