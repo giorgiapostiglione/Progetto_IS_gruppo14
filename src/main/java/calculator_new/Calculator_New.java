@@ -29,7 +29,7 @@ public class Calculator_New extends Application {
         Scene scene = new Scene(root, 650, 450);
 
         // Creazione della scena e impostazione dello stage
-        primaryStage.setTitle("C4LC0L4TR1C3 P0L4CC4");
+        primaryStage.setTitle("CALCOLATRICE POLACCA");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
